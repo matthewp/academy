@@ -1,0 +1,30 @@
+{
+	"curly": true,
+	"eqeqeq": true,
+	"freeze": true,
+	"noarg": true,
+	"undef": true,
+	"unused": "vars",
+	"trailing": true,
+	"maxdepth": 4,
+	"boss" : true,
+
+	"esnext": true,
+	"eqnull": true,
+	"evil": true,
+	"loopfunc": true,
+	"smarttabs": true,
+	"maxerr" : 200,
+
+	"browser": true,
+	"phantom": true,
+	"node": true,
+
+	"globals": {
+		"describe": true,
+		"it": true,
+		"beforeEach": true,
+		"afterEach": true,
+		"customElements": true
+	}
+}

@@ -13,8 +13,6 @@
   <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
   <title>Bitovi Academy - Our First Component</title>
   
-  <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
-  
 </head>
 
 <body>
@@ -140,7 +138,7 @@
            						expanded">
 						<a class="page"
 							href="first-component.html"
-							title="Build a &lt;hello-world&gt; component to learn the APIs.">
+							title="Build a &lt;my-greeting&gt; component to learn the APIs. It will be able to display a greeting, and receive a name parameter either from an attribute or a JavaScript property.">
 							Our First Component
 						</a>
 						
@@ -226,7 +224,7 @@
   		
   			
   				<section class="description">
-    <p>Build a <code>&lt;hello-world&gt;</code> component to learn the APIs.</p>
+    <p>Build a <code>&lt;my-greeting&gt;</code> component to learn the APIs. It will be able to display a greeting, and receive a <code>name</code> parameter either from an attribute or a JavaScript property.</p>
 
 </section>
 
@@ -244,8 +242,169 @@
 <ul>
 <li>Learn how to use a web component in HTML.</li>
 <li>Write the JavaScript necessary for registering a custom element.</li>
-<li>Accept arguments, in the form of HTML attributes, to our component and respond when they change.</li>
+<li>Accept arguments, in the form of HTML attributes and JavaScript properties, to our component and respond when they change.</li>
 </ul>
+<h2>Using custom elements</h2>
+<p>Custom elements can be used the same way that regular elements can; with one bonus included. You can:</p>
+<ul>
+<li><p>Include them directly in HTML like so:</p>
+<pre><code class="language-html">&lt;my-greeting&gt;&lt;/my-greeting&gt;
+</code></pre></li>
+<li><p>Build them using the JavaScript DOM APIs such as:</p>
+<pre><code class="language-js">let element = document.createElement('my-greeting');
+
+// OR provide HTML like this
+otherElement.innerHTML = `&lt;my-greeting&gt;&lt;/my-greeting&gt;`;
+</code></pre></li>
+<li><p>And the <strong>bonus</strong>, call their constructors (you can't do this with normal elements):</p>
+<pre><code class="language-js">let element = new MyGreeting();
+
+// This is a DOM node now, do the usual things with it:
+document.body.appendChild(element);
+</code></pre></li>
+</ul>
+<p>Let's create our first element by adding it to the HTML.</p>
+<pre><code class="language-html">&lt;my-greeting&gt;&lt;/my-greeting&gt;
+</code></pre>
+<div class='codepen'></div>
+<p>Click the &quot;Run in your browser&quot; button above and notice that... nothing happens. In order to do anything useful, we have to register our element.</p>
+<h2>Registering our tag</h2>
+<p>The <a href="https://html.spec.whatwg.org/multipage/custom-elements.html">custom elements API</a> provides a way to hook into the browser's HTML parser and receive callbacks whenever a certain tag is encountered. Think about that; your code can run before the page has even finished loading (provided your script has run). That's a lot of power.</p>
+<p>Custom elements are classes that extend <a href="https://html.spec.whatwg.org/multipage/dom.html">HTMLElement</a>. This is the base class from which all elements, both built-in and custom, derive. For example the <code>&lt;progress&gt;</code> element is an instance of <code>HTMLProgressElement</code>.</p>
+<p>To register our own tag we first extend HTMLElement like so:</p>
+<pre><code class="language-js">class MyGreeting extends HTMLElement {
+
+}
+</code></pre>
+<p>Once you've extended HTMLElement you then need to give it a tag name and pass that, along with the class into <code>customElements.define()</code>. Since we want to print <strong>Hello world</strong> we can do that in the constructor:</p>
+<pre><code class="language-html">&lt;my-greeting&gt;&lt;/my-greeting&gt;
+&lt;script type=&quot;module&quot;&gt;
+  class MyGreeting extends HTMLElement {
+    constructor() {
+      super();
+      this.innerHTML = `Hello world`;
+    }
+  }
+
+  customElements.define('my-greeting', MyGreeting);
+&lt;/script&gt;
+</code></pre>
+<div class='codepen'></div>
+<h2>Responding to attribute changes</h2>
+<p>A component is only useful if it can receive parameters just like functions do through function arguments. There are two primary ways for a web component to receive arguments:</p>
+<ul>
+<li>Through attributes like <code>foo=&quot;bar&quot;</code>.</li>
+<li>Through properties in JavaScript like <code>element.foo = 'bar';</code></li>
+</ul>
+<p>In this example we'll do both.</p>
+<h3>attributeChangeCallback</h3>
+<p>In order to understand attributes in custom elements we'll learn about our first lifecycle callback. <code>attributeChangedCallback</code> is a method you define on your element class. It will be called back with the name of the attribute, as well as the new and old value.</p>
+<pre><code class="language-js">class MyGreeting extends HTMLElement {
+  attributeChangedCallback(attributeName, oldValue, newValue) {
+    // Do whatever you want here
+  }
+}
+</code></pre>
+<p><em>However</em>, in order to get attribute change notification you <strong>must</strong> define which attributes should be observed. This means that you aren't notified when any arbitrary attribute is added; only those you predefine. This is a performance optimization tradeoff that was made when designing the API.</p>
+<p>To define which attributes should be added you add a static getter <code>observedAttributes</code> on the class.</p>
+<p>The following will observe changes the <code>name</code> attribute and update the innerHTML when it changes.</p>
+<pre><code class="language-html">&lt;my-greeting name=&quot;world&quot;&gt;&lt;/my-greeting&gt;
+&lt;script type=&quot;module&quot;&gt;
+  class MyGreeting extends HTMLElement {
+    static get observedAttributes() {
+      return ['name'];
+    }
+
+    constructor() {
+      super();
+      this.render();
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+      this.render();
+    }
+
+    render() {
+      let name = this.getAttribute('name');
+      this.innerHTML = `Hello ${name}`;
+    }
+  }
+
+  customElements.define('my-greeting', MyGreeting);
+
+  // Let's modify the element
+  let element = document.querySelector('my-greeting');
+
+  setTimeout(() =&gt; {
+    element.setAttribute('name', 'Matthew');
+  }, 3000);
+&lt;/script&gt;
+</code></pre>
+<div class='codepen'></div>
+<div line-highlight='1,4-6,10,13-15,17-20,25-30'></div>
+<p>Running the above you should see <code>Hello world</code> for a few seconds and then change to <code>Hello Matthew</code>.</p>
+<p>Here we are:</p>
+<ul>
+<li>Defining <code>name</code> as an observed attribute with <code>static get observedAttributes()</code>.</li>
+<li>Calling <code>this.render()</code> when the element is constructed.</li>
+<li>Calling <code>this.render()</code> again whenever the attribute changes.</li>
+<li>Using the <code>name</code> attribute to set the element's text.</li>
+</ul>
+<h2>Responding to property changes</h2>
+<p>This one is a bit easier if you are already familiar with JavaScript classes. Since an element is a JavaScript object it can receive properties the same way any JavaScript class can.</p>
+<p>We can add a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set">setter</a> to be notified when the <code>name</code> property is changed.</p>
+<p>Below we refactor the code so that it treats attributes and properties the same way.</p>
+<pre><code class="language-html">&lt;my-greeting name=&quot;world&quot;&gt;&lt;/my-greeting&gt;
+&lt;script type=&quot;module&quot;&gt;
+  class MyGreeting extends HTMLElement {
+    static get observedAttributes() {
+      return ['name'];
+    }
+
+    constructor() {
+      super();
+      this._name = this.getAttribute('name');
+      this.render();
+    }
+
+    attributeChangedCallback(attributeName, oldValue, newValue) {
+      this[attributeName] = newValue;
+    }
+
+    render() {
+      let name = this.name;
+      this.innerHTML = `Hello ${name}`;
+    }
+
+    get name() {
+      return this._name;
+    }
+
+    set name(value) {
+      this._name = value;
+      this.render();
+    }
+  }
+
+  customElements.define('my-greeting', MyGreeting);
+
+  // Let's modify the element
+  let element = document.querySelector('my-greeting');
+
+  setTimeout(() =&gt; {
+    element.setAttribute('name', 'Matthew');
+  }, 3000);
+
+  setTimeout(() =&gt; {
+    element.name = 'Wilbur';
+  }, 6000);
+&lt;/script&gt;
+</code></pre>
+<div class='codepen'></div>
+<div line-highlight='10,15,19,23-25,27-30,42-44,only'></div>
+<p>In the above we change it so that if an attribute change it just calls the property setter. The property then saves its value in a &quot;private&quot; variable <code>this._name</code>.</p>
+<p>This works the way most built-in elements work; changing a property does <strong>not</strong> reflect in the attribute; but changing an attribute does change the value of the property.</p>
+<p>In either case, the text changes when we change the value.</p>
 
 </section>
 
@@ -284,20 +443,13 @@
 
   <div id="scripts">
     <script type="text/javascript">
-      var docObject = {"src":{"path":"src/web-components/our-first-component.md"},"description":"Build a `<hello-world>` component to learn the APIs. \n","name":"web-components/first-component","title":"Our First Component","type":"page","parent":"web-components","order":2,"comment":" ","pathToRoot":"../.."};
+      var docObject = {"src":{"path":"src/web-components/our-first-component.md"},"description":"Build a `<my-greeting>` component to learn the APIs. It will be able to display a greeting, and receive a `name` parameter either from an attribute or a JavaScript property. \n","name":"web-components/first-component","title":"Our First Component","type":"page","parent":"web-components","order":2,"comment":" ","pathToRoot":"../.."};
     </script>
 
     
-      <script>
-        steal = {
-          instantiated: {
-            "bundles/bit-docs-site/static.css!$css" : null
-          }
-        }
-      </script>
       <script type='text/javascript'
-          data-main="bit-docs-site/static"
-          src="../static/steal.production.js"></script>
+        data-main="bit-docs-site/static"
+        src="../static/node_modules/steal/steal.js"></script>
     
 
     <!-- Global site tag (gtag.js) - Google Analytics -->

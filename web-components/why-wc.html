@@ -13,8 +13,6 @@
   <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
   <title>Bitovi Academy - Why Web Components</title>
   
-  <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
-  
 </head>
 
 <body>
@@ -143,7 +141,7 @@
            						">
 						<a class="page"
 							href="first-component.html"
-							title="Build a &lt;hello-world&gt; component to learn the APIs.">
+							title="Build a &lt;my-greeting&gt; component to learn the APIs. It will be able to display a greeting, and receive a name parameter either from an attribute or a JavaScript property.">
 							Our First Component
 						</a>
 						
@@ -299,16 +297,9 @@
     </script>
 
     
-      <script>
-        steal = {
-          instantiated: {
-            "bundles/bit-docs-site/static.css!$css" : null
-          }
-        }
-      </script>
       <script type='text/javascript'
-          data-main="bit-docs-site/static"
-          src="../static/steal.production.js"></script>
+        data-main="bit-docs-site/static"
+        src="../static/node_modules/steal/steal.js"></script>
     
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
