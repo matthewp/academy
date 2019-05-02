@@ -3,15 +3,15 @@
 	THIS IS A GENERATED FILE — ANY CHANGES MADE WILL BE OVERWRITTEN
 
 	INSTEAD CHANGE:
-	source: src/web-components/why-web-components.md
-	@page web-components/why-wc
+	source: src/web-components/map-view.md
+	@page web-components/map-view
 ######################################################################## -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
-  <title>Bitovi Academy - Why Web Components</title>
+  <title>Bitovi Academy - Map View</title>
   
   <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
   
@@ -120,17 +120,14 @@
 		
 			
 				
-					<li class="current
-           						parent
-           						expanded">
+					<li class="
+           						
+           						">
 						<a class="page"
 							href="why-wc.html"
 							title="Learn why web components might be a good choice for building your next widget.">
 							Why Web Components
 						</a>
-						
-							
-
 						
 					</li>
 				
@@ -168,14 +165,17 @@
 		
 			
 				
-					<li class="
-           						
-           						">
+					<li class="current
+           						parent
+           						expanded">
 						<a class="page"
 							href="map-view.html"
 							title="Create a component to hold our Google map view.">
 							Map View
 						</a>
+						
+							
+
 						
 					</li>
 				
@@ -263,7 +263,7 @@
     <div class="main-content">
   		
   			<section class="title">
-	<h1>Why Web Components <code>page</code></h1>
+	<h1>Map View <code>page</code></h1>
 </section>
 
   		
@@ -271,7 +271,7 @@
   		
   			
   				<section class="description">
-    <p>Learn why web components might be a good choice for building your next widget.</p>
+    <p>Create a component to hold our Google map view.</p>
 
 </section>
 
@@ -284,24 +284,82 @@
   			
   			
   				<section class="body">
-    <h2>What are Web Components</h2>
-<p><em>Web Components</em> is an umbrella term that refers to a few browser APIs that have been developed in recent years. What these APIs have in common is that they provide building blocks for creating reusable components; or UI widgets that encapsulate some combination of style and behavior.</p>
-<p>The APIs that make up web components include (but are not necessarily limited to):</p>
+    <h2>The problem</h2>
+<p>In this section we will:</p>
 <ul>
-<li><strong><a href="https://html.spec.whatwg.org/multipage/custom-elements.html">Custom elements</a></strong> - Allows you to define an HTML tag, like <strong>my-tabs</strong>, and respond to lifecycle event for when that tag is used in a document. When distributing a web component you will <em>usually</em> be defining its external API as a series of properties, attributes, and events of a custom element.</li>
-<li><strong><a href="https://html.spec.whatwg.org/multipage/scripting.html#the-template-element">Templates</a></strong> - Allows you to define HTML that is <em>inert</em>. This means that the HTML is not rendered by the browsers -- images are not loaded, scripts are not run, etc. To activate templates you use JavaScript to clone them and insert them some where else. Such as...</li>
-<li><strong><a href="https://dom.spec.whatwg.org/#interface-shadowroot">Shadow DOM</a></strong> - Provides encapsulation for web components. Any DOM defined within a shadowRoot is &quot;hidden&quot; to the outside world. Any <code>&lt;style&gt;</code>s defined do not affect nodes defined outside. Additional shadow DOM allows you to define how a component's children are distributed and used.</li>
-<li><strong><a href="https://dom.spec.whatwg.org/#interface-customevent">Custom Events</a></strong> - Allows triggering events on an element while providing additional data about the event. An example would be a <code>tab-change</code> event which might also include the name of the tab that was changed to.</li>
+<li>Create a component named <code>google-map-view</code>.</li>
+<li>Use Shadow DOM to encapsulate styles.</li>
+<li>Initialize the Google maps API.</li>
 </ul>
-<h2>Use cases</h2>
-<p>Web Components serve many purposes, including:</p>
+<h2>How to solve this problem</h2>
 <ul>
-<li>Creating components to <strong>share with other teams in your company</strong>. Many times larger organizations have apps that run in different frameworks, or no framework. Web components allow you to create widgets that are more easily useable with any framework or with traditional server-rendering.</li>
-<li>Creating components for a <strong>SaaS business</strong>. If you operate a business where embedding widgets is part of your value, web components often make for a better alternative to iframes or script + DOM; web components provide true encapsulation so you do not have to worry about your CSS poisoning your users pages. And they are easier to use than the usual embed code. An example would be a mapping company that sells slippy maps.</li>
-<li>Branded <strong>component libraries</strong>. Especially within an organization, it's nice to be able to distribute a <code>brand-button</code> component so that buttons look the same everywhere.</li>
-<li><strong>Progressive enhancement</strong>. Components that <em>enhance</em> native built-in elements. An example would be a menu that is visible as a list in basic HTML, but is upgraded as a web component to be activated via a dropdown.</li>
-<li>Building a <strong>single page app</strong>. Web components can be used as a primitive in frameworks.</li>
+<li>Create a custom element class called <code>GoogleMapView</code>.</li>
+<li>Attach a Shadow DOM and clone our template into it.</li>
+<li>Initialize the Google Maps API in <code>connectedCallback</code> and attach it to the root element within the Shadow DOM.</li>
 </ul>
+<h2>What you need to know</h2>
+<ul>
+<li>(Most) elements can have a <code>shadowRoot</code> property. This is a special version of a <a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment">DocumentFragment</a> that is completely encapsulated. You cannot query the nodes within it from the outside (like <code>document.querySelector('.gmap')</code>). Styles within will not affect DOM outside.</li>
+<li>Create a shadowRoot for your element by calling <code>this.attachShadow({ mode: 'open' })</code>.</li>
+<li><code>connectedCallback</code> is a lifecycle method for custom elements. It is called when the element is <strong>connected</strong>, which can occur in one of these scenarios:
+<ul>
+<li>The HTML parser sees the element within the page.</li>
+<li>An element node is inserted into the page like <code>document.body.append(node)</code>.</li>
+</ul></li>
+</ul>
+<h2>The solution</h2>
+<p>Building off of the template we created in the previous section, now extend <code>HTMLElement</code> to create a custom element.</p>
+<pre><code class="language-html">&lt;google-map-view&gt;&lt;/google-map-view&gt;
+
+&lt;template id=&quot;gmap-template&quot;&gt;
+  &lt;style&gt;
+    .gmap {
+      width: 100%;
+      height: 250px;
+      background-color: grey;
+    }
+  &lt;/style&gt;
+  &lt;div class=&quot;gmap&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;script type=&quot;module&quot;&gt;
+const template = document.querySelector('#gmap-template');
+
+const googleAPI = new Promise(resolve =&gt; {
+  const script = document.createElement(&quot;script&quot;);
+  script.src =
+    &quot;https://maps.googleapis.com/maps/api/js?key=AIzaSyD7POAQA-i16Vws48h4yRFVGBZzIExOAJI&quot;;
+  document.body.appendChild(script);
+  script.onload = resolve;
+});
+
+class GoogleMapView extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+
+    let nodes = document.importNode(template.content, true);
+    this.shadowRoot.append(nodes);
+  }
+
+  async connectedCallback() {
+    await googleAPI;
+
+    let gmap = this.shadowRoot.querySelector('.gmap');
+    this.map = new google.maps.Map(gmap, {
+      zoom: 10,
+      center: {
+        lat: 41.881,
+        lng: -87.623
+      }
+    });
+  }
+}
+
+customElements.define('google-map-view', GoogleMapView);
+&lt;/script&gt;
+</code></pre>
+<div line-highlight='1,14-47,only'></div>
+<div class='codepen'></div>
 
 </section>
 
@@ -340,7 +398,7 @@
 
   <div id="scripts">
     <script type="text/javascript">
-      var docObject = {"src":{"path":"src/web-components/why-web-components.md"},"description":"Learn why web components might be a good choice for building your next widget. \n","name":"web-components/why-wc","title":"Why Web Components","type":"page","parent":"web-components","order":1,"comment":" ","pathToRoot":"../.."};
+      var docObject = {"src":{"path":"src/web-components/map-view.md"},"description":"Create a component to hold our Google map view. \n","name":"web-components/map-view","title":"Map View","type":"page","parent":"web-components","order":4,"comment":" ","pathToRoot":"../.."};
     </script>
 
     

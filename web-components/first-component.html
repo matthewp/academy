@@ -11,7 +11,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
-  <title>Bitovi Academy - Our First Component</title>
+  <title>Bitovi Academy - Our first component</title>
   
   <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
   
@@ -141,11 +141,56 @@
 						<a class="page"
 							href="first-component.html"
 							title="Build a &lt;my-greeting&gt; component to learn the APIs. It will be able to display a greeting, and receive a name parameter either from an attribute or a JavaScript property.">
-							Our First Component
+							Our first component
 						</a>
 						
 							
 
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="templates.html"
+							title="Learn how &lt;template&gt; can be used to create reusable DOM that can be cloned and used within your components.">
+							Writing a template
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="map-view.html"
+							title="Create a component to hold our Google map view.">
+							Map View
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="listing-routes.html"
+							title="Learn lit-html by creating a component that lists bus routes from the CTA bus tracker API.">
+							Listing routes
+						</a>
 						
 					</li>
 				
@@ -218,7 +263,7 @@
     <div class="main-content">
   		
   			<section class="title">
-	<h1>Our First Component <code>page</code></h1>
+	<h1>Our first component <code>page</code></h1>
 </section>
 
   		
@@ -281,14 +326,14 @@ document.body.appendChild(element);
 <p>Once you've extended HTMLElement you then need to give it a tag name and pass that, along with the class into <code>customElements.define()</code>. Since we want to print <strong>Hello world</strong> we can do that in the constructor:</p>
 <pre><code class="language-html">&lt;my-greeting&gt;&lt;/my-greeting&gt;
 &lt;script type=&quot;module&quot;&gt;
-  class MyGreeting extends HTMLElement {
-    constructor() {
-      super();
-      this.innerHTML = `Hello world`;
-    }
+class MyGreeting extends HTMLElement {
+  constructor() {
+    super();
+    this.innerHTML = `Hello world`;
   }
+}
 
-  customElements.define('my-greeting', MyGreeting);
+customElements.define('my-greeting', MyGreeting);
 &lt;/script&gt;
 </code></pre>
 <div class='codepen'></div>
@@ -312,34 +357,34 @@ document.body.appendChild(element);
 <p>The following will observe changes the <code>name</code> attribute and update the innerHTML when it changes.</p>
 <pre><code class="language-html">&lt;my-greeting name=&quot;world&quot;&gt;&lt;/my-greeting&gt;
 &lt;script type=&quot;module&quot;&gt;
-  class MyGreeting extends HTMLElement {
-    static get observedAttributes() {
-      return ['name'];
-    }
-
-    constructor() {
-      super();
-      this.render();
-    }
-
-    attributeChangedCallback(name, oldValue, newValue) {
-      this.render();
-    }
-
-    render() {
-      let name = this.getAttribute('name');
-      this.innerHTML = `Hello ${name}`;
-    }
+class MyGreeting extends HTMLElement {
+  static get observedAttributes() {
+    return ['name'];
   }
 
-  customElements.define('my-greeting', MyGreeting);
+  constructor() {
+    super();
+    this.render();
+  }
 
-  // Let's modify the element
-  let element = document.querySelector('my-greeting');
+  attributeChangedCallback(name, oldValue, newValue) {
+    this.render();
+  }
 
-  setTimeout(() =&gt; {
-    element.setAttribute('name', 'Matthew');
-  }, 3000);
+  render() {
+    let name = this.getAttribute('name');
+    this.innerHTML = `Hello ${name}`;
+  }
+}
+
+customElements.define('my-greeting', MyGreeting);
+
+// Let's modify the element
+let element = document.querySelector('my-greeting');
+
+setTimeout(() =&gt; {
+  element.setAttribute('name', 'Matthew');
+}, 3000);
 &lt;/script&gt;
 </code></pre>
 <div class='codepen'></div>
@@ -358,48 +403,48 @@ document.body.appendChild(element);
 <p>Below we refactor the code so that it treats attributes and properties the same way.</p>
 <pre><code class="language-html">&lt;my-greeting name=&quot;world&quot;&gt;&lt;/my-greeting&gt;
 &lt;script type=&quot;module&quot;&gt;
-  class MyGreeting extends HTMLElement {
-    static get observedAttributes() {
-      return ['name'];
-    }
-
-    constructor() {
-      super();
-      this._name = this.getAttribute('name');
-      this.render();
-    }
-
-    attributeChangedCallback(attributeName, oldValue, newValue) {
-      this[attributeName] = newValue;
-    }
-
-    render() {
-      let name = this.name;
-      this.innerHTML = `Hello ${name}`;
-    }
-
-    get name() {
-      return this._name;
-    }
-
-    set name(value) {
-      this._name = value;
-      this.render();
-    }
+class MyGreeting extends HTMLElement {
+  static get observedAttributes() {
+    return ['name'];
   }
 
-  customElements.define('my-greeting', MyGreeting);
+  constructor() {
+    super();
+    this._name = this.getAttribute('name');
+    this.render();
+  }
 
-  // Let's modify the element
-  let element = document.querySelector('my-greeting');
+  attributeChangedCallback(attributeName, oldValue, newValue) {
+    this[attributeName] = newValue;
+  }
 
-  setTimeout(() =&gt; {
-    element.setAttribute('name', 'Matthew');
-  }, 3000);
+  render() {
+    let name = this.name;
+    this.innerHTML = `Hello ${name}`;
+  }
 
-  setTimeout(() =&gt; {
-    element.name = 'Wilbur';
-  }, 6000);
+  get name() {
+    return this._name;
+  }
+
+  set name(value) {
+    this._name = value;
+    this.render();
+  }
+}
+
+customElements.define('my-greeting', MyGreeting);
+
+// Let's modify the element
+let element = document.querySelector('my-greeting');
+
+setTimeout(() =&gt; {
+  element.setAttribute('name', 'Matthew');
+}, 3000);
+
+setTimeout(() =&gt; {
+  element.name = 'Wilbur';
+}, 6000);
 &lt;/script&gt;
 </code></pre>
 <div class='codepen'></div>
@@ -445,7 +490,7 @@ document.body.appendChild(element);
 
   <div id="scripts">
     <script type="text/javascript">
-      var docObject = {"src":{"path":"src/web-components/our-first-component.md"},"description":"Build a `<my-greeting>` component to learn the APIs. It will be able to display a greeting, and receive a `name` parameter either from an attribute or a JavaScript property. \n","name":"web-components/first-component","title":"Our First Component","type":"page","parent":"web-components","order":2,"comment":" ","pathToRoot":"../.."};
+      var docObject = {"src":{"path":"src/web-components/our-first-component.md"},"description":"Build a `<my-greeting>` component to learn the APIs. It will be able to display a greeting, and receive a `name` parameter either from an attribute or a JavaScript property. \n","name":"web-components/first-component","title":"Our first component","type":"page","parent":"web-components","order":2,"comment":" ","pathToRoot":"../.."};
     </script>
 
     
