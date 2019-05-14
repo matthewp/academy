@@ -3,15 +3,15 @@
 	THIS IS A GENERATED FILE — ANY CHANGES MADE WILL BE OVERWRITTEN
 
 	INSTEAD CHANGE:
-	source: src/web-components/listing-routes.md
-	@page web-components/listing-routes
+	source: src/web-components/selecting-route.md
+	@page learn-web-components/select-a-route
 ######################################################################## -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
-  <title>Bitovi Academy - Listing routes</title>
+  <title>Bitovi Academy - Selecting a route</title>
   
   <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
   
@@ -105,14 +105,16 @@
 			
 		
 			
+		
+			
 				
 					<li class="
            						parent
            						expanded">
 						<a class="page"
-							href="../web-components.html"
+							href="../learn-web-components.html"
 							title="">
-							Web Components
+							Learn Web Components
 						</a>
 						
 							
@@ -180,13 +182,28 @@
 		
 			
 				
-					<li class="current
-           						parent
-           						expanded">
+					<li class="
+           						
+           						">
 						<a class="page"
 							href="listing-routes.html"
 							title="Learn lit-html by creating a component that lists bus routes from the CTA bus tracker API.">
 							Listing routes
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="current
+           						parent
+           						expanded">
+						<a class="page"
+							href="select-a-route.html"
+							title="Learn more about lit-html, with its special syntax for setting up event listeners and for passing properties to child components.">
+							Selecting a route
 						</a>
 						
 							
@@ -202,8 +219,6 @@
 						
 					</li>
 				
-			
-		
 			
 		
 			
@@ -263,7 +278,7 @@
     <div class="main-content">
   		
   			<section class="title">
-	<h1>Listing routes <code>page</code></h1>
+	<h1>Selecting a route <code>page</code></h1>
 </section>
 
   		
@@ -271,7 +286,7 @@
   		
   			
   				<section class="description">
-    <p>Learn lit-html by creating a component that lists bus routes from the CTA bus tracker API.</p>
+    <p>Learn more about lit-html, with its special syntax for setting up event listeners and for passing properties to child components.</p>
 
 </section>
 
@@ -287,26 +302,44 @@
     <h2>The problem</h2>
 <p>In this section we will:</p>
 <ul>
-<li>Create another component named <code>bus-tracker</code>.</li>
-<li>Display a list of bus routes.</li>
+<li>Listen for when the user selects a bus route from the list.</li>
+<li>Show a checkmark next to the selected route in the list.</li>
+<li>Display the selected route overlaying the map component.</li>
+<li>Get a list of vehicles for this route from the CTA bus tracker API.</li>
+<li>Pass the vehicles to <code>&lt;google-map-view&gt;</code>.</li>
 </ul>
 <h2>How to solve this problem</h2>
 <ul>
-<li>Use <a href="https://lit-html.polymer-project.org/">lit-html</a> to define a template that can be updated.</li>
-<li>Render the lit-html template into the <code>shadowRoot</code> in the <code>connectedCallback</code>.</li>
-<li>Fetch a list of routes from the CTA bus tracker API.</li>
+<li>Use <a href="https://lit-html.polymer-project.org/">lit-html</a>'s <code>@</code> syntax to listen to a <strong>click</strong> event on each bus route in the list.</li>
+<li>Call a function, <code>_pickRoute()</code> that will be used to set the chosen route, call to the CTA bus tracker API to get a list of vehicles and then call <code>update()</code> on our component which triggers a rerender.</li>
+<li>Add some HTML to the footer to display the selected route as an overlay to the map component.</li>
+<li>Use lit-html's <code>.</code> (dot) syntax to pass properties to child components.</li>
 </ul>
 <h2>What you need to know</h2>
 <ul>
-<li><a href="https://lit-html.polymer-project.org/">lit-html</a> is a library to make writing templates easier. Using the <code>&lt;template&gt;</code> element you can only define <strong>static</strong> DOM. It doesn't provide a way to insert dynamic text or attributes. It also doesn't provide a way to declaratively update when data changes. lit-html gives us that with its <code>html</code> function.</li>
-<li>Defining an <code>update()</code> method gives us a way to update any time data changes. In this section the data changes when the routes <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> resolves.</li>
-<li>lit-html has a <code>render()</code> export. This takes a <code>TemplateResult</code>, which is returned by <code>html</code>, and a host element; in our case the element's <code>shadowRoot</code>.</li>
-<li>lit-html uses the JavaScript feature <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates">tagged templates</a> to facilitate templating. You can nest calls to <code>html</code> inside of a template and stuff like <code>Array#map</code> works. These are all features of lit-html, not of the web component APIs.</li>
+<li>Like elements in the light DOM (the DOM the page renders with), elements in the shadow DOM can have event listeners. So you can use normal DOM methods like <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector">querySelector</a> to find elements, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">addEventListener</a> to listen to events.</li>
+<li>Use <code>connectedCallback()</code> to set up event listeners.</li>
+<li>Use <code>disconnectedCallback()</code> to remove event listeners. Using both of these lifecycle callbacks ensures there won't be memory leaks in your component.</li>
+<li>lit-html has a shorthand in its templating syntax for listening to events. <code>@click=${fn}</code> is a way to set up an event listener on an element. It <em>looks</em> like an attribute, but is not added as an attribute. Instead it calls <code>addEventListener()</code> under the hood. This allows you to have declarative templates that include information like the events listening to.</li>
+<li>Likewise, lit-html has a shorthand for setting properties. The <strong>dot</strong> notation, or <code>.vehicles=${vehicles}</code>. The dot is like setting a property in JavaScript, <code>foo.bar = 'baz'</code>. Like with event listeners, this is not part of HTML, but rather something that lit-html is layering over-top, to allow more declarative templating and less need for manual DOM manipulation.</li>
 </ul>
 <h2>The solution</h2>
-<p>Remove the <code>&lt;google-map-view&gt;</code> from the HTML and replace it with <code>&lt;bus-tracker&gt;</code>. Then add a template to hold the bus-tracker's styles. Then using lit-html loop over the routes (after the promise resolves) and display some information about then in a <code>&lt;ul&gt;</code>.</p>
+<p>Set an <code>@click</code> listener on each bus route item that calls a <code>_pickRoute()</code> function. Set that function to fetch the list of vehicles for the selected route. Call <code>update()</code> immediately and when the vehicles are available. Finally pass the list of vehicles to <code>&lt;google-map-view&gt;</code> view the <code>.vehicles</code> syntax. In the next section we'll take these vehicles and display them as markers on the map.</p>
 <pre><code class="language-html">&lt;bus-tracker&gt;&lt;/bus-tracker&gt;
 
+&lt;style&gt;
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: &quot;Catamaran&quot;, sans-serif;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+&lt;/style&gt;
 &lt;template id=&quot;bt-template&quot;&gt;
   &lt;style&gt;
     :host {
@@ -321,7 +354,7 @@
       display: flex;
       flex-direction: column;
     }
-    
+
     footer {
       height: 250px;
       position: relative;
@@ -331,7 +364,7 @@
       height: 250px;
       background-color: grey;
     }
-    
+
     header {
       box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
       background-color: #313131;
@@ -342,7 +375,7 @@
       justify-content: center;
       line-height: 1.2;
     }
-    
+
     header h1 {
       text-align: center;
       font-size: 18px;
@@ -360,7 +393,7 @@
       right: 10px;
       padding: 6px 10px;
       color: white;
-      border-radius: 2px;
+      border-radius: 2px; border: none;
       cursor: pointer;
     }
     .route-selected small {
@@ -536,6 +569,7 @@ class BusTracker extends HTMLElement {
 
   connectedCallback() {
     this._getRoutes();
+    this._getVehicles();
     this.update();
   }
 
@@ -549,6 +583,32 @@ class BusTracker extends HTMLElement {
       .then(data =&gt; data[&quot;bustime-response&quot;].routes);
 
     this.routes = new StatefulPromise(promise, this);
+  }
+
+  _getVehicles(route) {
+    let promise;
+
+    if (route) {
+      promise = fetch(proxyUrl + getVehiclesEndpoint + &quot;&amp;rt=&quot; + route.rt)
+        .then(response =&gt; response.json())
+        .then(data =&gt; {
+          if (data[&quot;bustime-response&quot;].error) {
+            return Promise.reject(data[&quot;bustime-response&quot;].error[0]);
+          } else {
+            return data[&quot;bustime-response&quot;].vehicle;
+          }
+        });
+    } else {
+      promise = Promise.resolve();
+    }
+
+    this.vehicles = new StatefulPromise(promise, this);
+  }
+
+  _pickRoute(route) {
+    this.route = route;
+    this._getVehicles(route);
+    this.update();
   }
 
   render() {
@@ -570,6 +630,7 @@ class BusTracker extends HTMLElement {
                 route =&gt; html`
                   &lt;li
                     class=${this.route === route ? &quot;active&quot; : &quot;&quot;}
+                    @click=${() =&gt; this._pickRoute(route)}
                   &gt;
                     &lt;span class=&quot;route-number&quot;&gt;${route.rt}&lt;/span&gt;
                     &lt;span class=&quot;route-name&quot;&gt;${route.rtnm}&lt;/span&gt;
@@ -580,7 +641,28 @@ class BusTracker extends HTMLElement {
             : &quot;&quot;}
         &lt;/ul&gt;
       &lt;/div&gt;
-      &lt;footer&gt;&lt;/footer&gt;
+      &lt;footer&gt;
+      ${this.route
+        ? html`
+            &lt;button
+              class=&quot;route-selected&quot;
+            &gt;
+              &lt;small&gt;Route ${this.route.rt}:&lt;/small&gt; ${this.route.rtnm}
+              ${this.vehicles.isRejected()
+                ? html`
+                    &lt;div class=&quot;error-message&quot;&gt;
+                      No vehicles available for this route
+                    &lt;/div&gt;
+                  `
+                : &quot;&quot;}
+            &lt;/button&gt;
+          `
+        : &quot;&quot;}
+
+        &lt;google-map-view
+          .vehicles=${this.vehicles.value}
+        &gt;&lt;/google-map-view&gt;
+      &lt;/footer&gt;
     `;
   }
 }
@@ -588,7 +670,7 @@ class BusTracker extends HTMLElement {
 customElements.define(&quot;bus-tracker&quot;, BusTracker);
 &lt;/script&gt;
 </code></pre>
-<div line-highlight='1,3-127,139,176-281,only'></div>
+<div line-highlight='3-15,261-285,306,318-337,only'></div>
 <div class='codepen'></div>
 
 </section>
@@ -628,7 +710,7 @@ customElements.define(&quot;bus-tracker&quot;, BusTracker);
 
   <div id="scripts">
     <script type="text/javascript">
-      var docObject = {"src":{"path":"src/web-components/listing-routes.md"},"description":"Learn lit-html by creating a component that lists bus routes from the CTA bus tracker API. \n","name":"web-components/listing-routes","title":"Listing routes","type":"page","parent":"web-components","order":5,"comment":" ","pathToRoot":"../.."};
+      var docObject = {"src":{"path":"src/web-components/selecting-route.md"},"description":"Learn more about lit-html, with its special syntax for setting up event listeners and for passing properties to child components. \n","name":"learn-web-components/select-a-route","title":"Selecting a route","type":"page","parent":"learn-web-components","order":6,"comment":" ","click":"=\"${() => this._pickRoute(this.route)}}\"","pathToRoot":"../.."};
     </script>
 
     

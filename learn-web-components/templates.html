@@ -3,15 +3,15 @@
 	THIS IS A GENERATED FILE — ANY CHANGES MADE WILL BE OVERWRITTEN
 
 	INSTEAD CHANGE:
-	source: src/web-components/why-web-components.md
-	@page web-components/why-wc
+	source: src/web-components/templates.md
+	@page learn-web-components/templates
 ######################################################################## -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
-  <title>Bitovi Academy - Why Web Components</title>
+  <title>Bitovi Academy - Writing a template</title>
   
   <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
   
@@ -105,14 +105,16 @@
 			
 		
 			
+		
+			
 				
 					<li class="
            						parent
            						expanded">
 						<a class="page"
-							href="../web-components.html"
+							href="../learn-web-components.html"
 							title="">
-							Web Components
+							Learn Web Components
 						</a>
 						
 							
@@ -120,17 +122,14 @@
 		
 			
 				
-					<li class="current
-           						parent
-           						expanded">
+					<li class="
+           						
+           						">
 						<a class="page"
 							href="why-wc.html"
 							title="Learn why web components might be a good choice for building your next widget.">
 							Why Web Components
 						</a>
-						
-							
-
 						
 					</li>
 				
@@ -153,14 +152,17 @@
 		
 			
 				
-					<li class="
-           						
-           						">
+					<li class="current
+           						parent
+           						expanded">
 						<a class="page"
 							href="templates.html"
 							title="Learn how &lt;template&gt; can be used to create reusable DOM that can be cloned and used within your components.">
 							Writing a template
 						</a>
+						
+							
+
 						
 					</li>
 				
@@ -196,14 +198,27 @@
 				
 			
 		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="select-a-route.html"
+							title="Learn more about lit-html, with its special syntax for setting up event listeners and for passing properties to child components.">
+							Selecting a route
+						</a>
+						
+					</li>
+				
+			
+		
 	</ul>
 
 
 						
 					</li>
 				
-			
-		
 			
 		
 			
@@ -263,7 +278,7 @@
     <div class="main-content">
   		
   			<section class="title">
-	<h1>Why Web Components <code>page</code></h1>
+	<h1>Writing a template <code>page</code></h1>
 </section>
 
   		
@@ -271,7 +286,7 @@
   		
   			
   				<section class="description">
-    <p>Learn why web components might be a good choice for building your next widget.</p>
+    <p>Learn how <code>&lt;template&gt;</code> can be used to create reusable DOM that can be cloned and used within your components.</p>
 
 </section>
 
@@ -284,24 +299,44 @@
   			
   			
   				<section class="body">
-    <h2>What are Web Components</h2>
-<p><em>Web Components</em> is an umbrella term that refers to a few browser APIs that have been developed in recent years. What these APIs have in common is that they provide building blocks for creating reusable components; or UI widgets that encapsulate some combination of style and behavior.</p>
-<p>The APIs that make up web components include (but are not necessarily limited to):</p>
+    <h2>The problem</h2>
+<p>In this section, we will:</p>
 <ul>
-<li><strong><a href="https://html.spec.whatwg.org/multipage/custom-elements.html">Custom elements</a></strong> - Allows you to define an HTML tag, like <strong>my-tabs</strong>, and respond to lifecycle event for when that tag is used in a document. When distributing a web component you will <em>usually</em> be defining its external API as a series of properties, attributes, and events of a custom element.</li>
-<li><strong><a href="https://html.spec.whatwg.org/multipage/scripting.html#the-template-element">Templates</a></strong> - Allows you to define HTML that is <em>inert</em>. This means that the HTML is not rendered by the browsers -- images are not loaded, scripts are not run, etc. To activate templates you use JavaScript to clone them and insert them some where else. Such as...</li>
-<li><strong><a href="https://dom.spec.whatwg.org/#interface-shadowroot">Shadow DOM</a></strong> - Provides encapsulation for web components. Any DOM defined within a shadowRoot is &quot;hidden&quot; to the outside world. Any <code>&lt;style&gt;</code>s defined do not affect nodes defined outside. Additional shadow DOM allows you to define how a component's children are distributed and used.</li>
-<li><strong><a href="https://dom.spec.whatwg.org/#interface-customevent">Custom Events</a></strong> - Allows triggering events on an element while providing additional data about the event. An example would be a <code>tab-change</code> event which might also include the name of the tab that was changed to.</li>
+<li>Create a template that includes the HTML we need for our <a href="https://www.google.com/maps">Google map</a> component.</li>
 </ul>
-<h2>Use cases</h2>
-<p>Web Components serve many purposes, including:</p>
+<h2>How to solve this problem</h2>
 <ul>
-<li>Creating components to <strong>share with other teams in your company</strong>. Many times larger organizations have apps that run in different frameworks, or no framework. Web components allow you to create widgets that are more easily useable with any framework or with traditional server-rendering.</li>
-<li>Creating components for a <strong>SaaS business</strong>. If you operate a business where embedding widgets is part of your value, web components often make for a better alternative to iframes or script + DOM; web components provide true encapsulation so you do not have to worry about your CSS poisoning your users pages. And they are easier to use than the usual embed code. An example would be a mapping company that sells slippy maps.</li>
-<li>Branded <strong>component libraries</strong>. Especially within an organization, it's nice to be able to distribute a <code>brand-button</code> component so that buttons look the same everywhere.</li>
-<li><strong>Progressive enhancement</strong>. Components that <em>enhance</em> native built-in elements. An example would be a menu that is visible as a list in basic HTML, but is upgraded as a web component to be activated via a dropdown.</li>
-<li>Building a <strong>single page app</strong>. Web components can be used as a primitive in frameworks.</li>
+<li>Add a <code>&lt;template&gt;</code> element that includes an element where our Google map will be initialized.</li>
+<li>Include styles within the template.</li>
+<li>Append the template to the body to see how template cloning works.</li>
 </ul>
+<h2>What you need to know</h2>
+<ul>
+<li><code>&lt;template&gt;</code> is an element whose children are <strong>inert</strong>. This means that the browser doesn't render them, like it will for nodes outside of templates. Images will not load, scripts will not execute, styles are not applied.</li>
+<li>Templates can be cloned using <code>template.content.cloneNode(true)</code> or <code>document.importNode(template.content, true)</code>. The latter is useful if you ever need to clone a template contained within another document, but otherwise they are equivalent.</li>
+<li>Cloning a template returns a <a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment">DocumentFragment</a>, a collection of DOM nodes that can be quickly inserted into an element.</li>
+</ul>
+<h2>The solution</h2>
+<p>Start by creating the template. Give it an <code>id</code> so that we can more easily query it to use it in our component.</p>
+<pre><code class="language-html">&lt;template id=&quot;gmap-template&quot;&gt;
+  &lt;style&gt;
+    .gmap {
+      width: 100%;
+      height: 250px;
+      background-color: grey;
+    }
+  &lt;/style&gt;
+  &lt;div class=&quot;gmap&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;script type=&quot;module&quot;&gt;
+const template = document.querySelector('#gmap-template');
+
+let nodes = document.importNode(template.content, true);
+document.body.append(nodes);
+&lt;/script&gt;
+</code></pre>
+<div class='codepen'></div>
+<p>Running this code should show you a 250px tall grey square.</p>
 
 </section>
 
@@ -340,7 +375,7 @@
 
   <div id="scripts">
     <script type="text/javascript">
-      var docObject = {"src":{"path":"src/web-components/why-web-components.md"},"description":"Learn why web components might be a good choice for building your next widget. \n","name":"web-components/why-wc","title":"Why Web Components","type":"page","parent":"web-components","order":1,"comment":" ","pathToRoot":"../.."};
+      var docObject = {"src":{"path":"src/web-components/templates.md"},"description":"Learn how `<template>` can be used to create reusable DOM that can be cloned and used within your components. \n","name":"learn-web-components/templates","title":"Writing a template","type":"page","parent":"learn-web-components","order":3,"comment":" ","pathToRoot":"../.."};
     </script>
 
     

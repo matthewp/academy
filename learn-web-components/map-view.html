@@ -3,15 +3,15 @@
 	THIS IS A GENERATED FILE — ANY CHANGES MADE WILL BE OVERWRITTEN
 
 	INSTEAD CHANGE:
-	source: src/web-components/templates.md
-	@page web-components/templates
+	source: src/web-components/map-view.md
+	@page learn-web-components/map-view
 ######################################################################## -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
-  <title>Bitovi Academy - Writing a template</title>
+  <title>Bitovi Academy - Map View</title>
   
   <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
   
@@ -105,14 +105,16 @@
 			
 		
 			
+		
+			
 				
 					<li class="
            						parent
            						expanded">
 						<a class="page"
-							href="../web-components.html"
+							href="../learn-web-components.html"
 							title="">
-							Web Components
+							Learn Web Components
 						</a>
 						
 							
@@ -150,17 +152,14 @@
 		
 			
 				
-					<li class="current
-           						parent
-           						expanded">
+					<li class="
+           						
+           						">
 						<a class="page"
 							href="templates.html"
 							title="Learn how &lt;template&gt; can be used to create reusable DOM that can be cloned and used within your components.">
 							Writing a template
 						</a>
-						
-							
-
 						
 					</li>
 				
@@ -168,14 +167,17 @@
 		
 			
 				
-					<li class="
-           						
-           						">
+					<li class="current
+           						parent
+           						expanded">
 						<a class="page"
 							href="map-view.html"
 							title="Create a component to hold our Google map view.">
 							Map View
 						</a>
+						
+							
+
 						
 					</li>
 				
@@ -196,14 +198,27 @@
 				
 			
 		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="select-a-route.html"
+							title="Learn more about lit-html, with its special syntax for setting up event listeners and for passing properties to child components.">
+							Selecting a route
+						</a>
+						
+					</li>
+				
+			
+		
 	</ul>
 
 
 						
 					</li>
 				
-			
-		
 			
 		
 			
@@ -263,7 +278,7 @@
     <div class="main-content">
   		
   			<section class="title">
-	<h1>Writing a template <code>page</code></h1>
+	<h1>Map View <code>page</code></h1>
 </section>
 
   		
@@ -271,7 +286,7 @@
   		
   			
   				<section class="description">
-    <p>Learn how <code>&lt;template&gt;</code> can be used to create reusable DOM that can be cloned and used within your components.</p>
+    <p>Create a component to hold our Google map view.</p>
 
 </section>
 
@@ -285,25 +300,33 @@
   			
   				<section class="body">
     <h2>The problem</h2>
-<p>In this section, we will:</p>
+<p>In this section we will:</p>
 <ul>
-<li>Create a template that includes the HTML we need for our <a href="https://www.google.com/maps">Google map</a> component.</li>
+<li>Create a component named <code>google-map-view</code>.</li>
+<li>Use Shadow DOM to encapsulate styles.</li>
+<li>Initialize the Google maps API.</li>
 </ul>
 <h2>How to solve this problem</h2>
 <ul>
-<li>Add a <code>&lt;template&gt;</code> element that includes an element where our Google map will be initialized.</li>
-<li>Include styles within the template.</li>
-<li>Append the template to the body to see how template cloning works.</li>
+<li>Create a custom element class called <code>GoogleMapView</code>.</li>
+<li>Attach a Shadow DOM and clone our template into it.</li>
+<li>Initialize the Google Maps API in <code>connectedCallback</code> and attach it to the root element within the Shadow DOM.</li>
 </ul>
 <h2>What you need to know</h2>
 <ul>
-<li><code>&lt;template&gt;</code> is an element whose children are <strong>inert</strong>. This means that the browser doesn't render them, like it will for nodes outside of templates. Images will not load, scripts will not execute, styles are not applied.</li>
-<li>Templates can be cloned using <code>template.content.cloneNode(true)</code> or <code>document.importNode(template.content, true)</code>. The latter is useful if you ever need to clone a template contained within another document, but otherwise they are equivalent.</li>
-<li>Cloning a template returns a <a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment">DocumentFragment</a>, a collection of DOM nodes that can be quickly inserted into an element.</li>
+<li>(Most) elements can have a <code>shadowRoot</code> property. This is a special version of a <a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment">DocumentFragment</a> that is completely encapsulated. You cannot query the nodes within it from the outside (like <code>document.querySelector('.gmap')</code>). Styles within will not affect DOM outside.</li>
+<li>Create a shadowRoot for your element by calling <code>this.attachShadow({ mode: 'open' })</code>.</li>
+<li><code>connectedCallback</code> is a lifecycle method for custom elements. It is called when the element is <strong>connected</strong>, which can occur in one of these scenarios:
+<ul>
+<li>The HTML parser sees the element within the page.</li>
+<li>An element node is inserted into the page like <code>document.body.append(node)</code>.</li>
+</ul></li>
 </ul>
 <h2>The solution</h2>
-<p>Start by creating the template. Give it an <code>id</code> so that we can more easily query it to use it in our component.</p>
-<pre><code class="language-html">&lt;template id=&quot;gmap-template&quot;&gt;
+<p>Building off of the template we created in the previous section, now extend <code>HTMLElement</code> to create a custom element.</p>
+<pre><code class="language-html">&lt;google-map-view&gt;&lt;/google-map-view&gt;
+
+&lt;template id=&quot;gmap-template&quot;&gt;
   &lt;style&gt;
     .gmap {
       width: 100%;
@@ -316,12 +339,42 @@
 &lt;script type=&quot;module&quot;&gt;
 const template = document.querySelector('#gmap-template');
 
-let nodes = document.importNode(template.content, true);
-document.body.append(nodes);
+const googleAPI = new Promise(resolve =&gt; {
+  const script = document.createElement(&quot;script&quot;);
+  script.src =
+    &quot;https://maps.googleapis.com/maps/api/js?key=AIzaSyD7POAQA-i16Vws48h4yRFVGBZzIExOAJI&quot;;
+  document.body.appendChild(script);
+  script.onload = resolve;
+});
+
+class GoogleMapView extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+
+    let nodes = document.importNode(template.content, true);
+    this.shadowRoot.append(nodes);
+  }
+
+  async connectedCallback() {
+    await googleAPI;
+
+    let gmap = this.shadowRoot.querySelector('.gmap');
+    this.map = new google.maps.Map(gmap, {
+      zoom: 10,
+      center: {
+        lat: 41.881,
+        lng: -87.623
+      }
+    });
+  }
+}
+
+customElements.define('google-map-view', GoogleMapView);
 &lt;/script&gt;
 </code></pre>
+<div line-highlight='1,14-47,only'></div>
 <div class='codepen'></div>
-<p>Running this code should show you a 250px tall grey square.</p>
 
 </section>
 
@@ -360,7 +413,7 @@ document.body.append(nodes);
 
   <div id="scripts">
     <script type="text/javascript">
-      var docObject = {"src":{"path":"src/web-components/templates.md"},"description":"Learn how `<template>` can be used to create reusable DOM that can be cloned and used within your components. \n","name":"web-components/templates","title":"Writing a template","type":"page","parent":"web-components","order":3,"comment":" ","pathToRoot":"../.."};
+      var docObject = {"src":{"path":"src/web-components/map-view.md"},"description":"Create a component to hold our Google map view. \n","name":"learn-web-components/map-view","title":"Map View","type":"page","parent":"learn-web-components","order":4,"comment":" ","pathToRoot":"../.."};
     </script>
 
     
