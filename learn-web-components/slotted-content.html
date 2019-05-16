@@ -3,15 +3,15 @@
 	THIS IS A GENERATED FILE — ANY CHANGES MADE WILL BE OVERWRITTEN
 
 	INSTEAD CHANGE:
-	source: src/web-components/selecting-route.md
-	@page learn-web-components/select-a-route
+	source: src/web-components/slotted-content.md
+	@page learn-web-components/slotted-content
 ######################################################################## -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
-  <title>Bitovi Academy - Selecting a route</title>
+  <title>Bitovi Academy - Slotted content</title>
   
   <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
   
@@ -197,17 +197,14 @@
 		
 			
 				
-					<li class="current
-           						parent
-           						expanded">
+					<li class="
+           						
+           						">
 						<a class="page"
 							href="select-a-route.html"
 							title="Learn more about lit-html, with its special syntax for setting up event listeners and for passing properties to child components.">
 							Selecting a route
 						</a>
-						
-							
-
 						
 					</li>
 				
@@ -245,14 +242,17 @@
 		
 			
 				
-					<li class="
-           						
-           						">
+					<li class="current
+           						parent
+           						expanded">
 						<a class="page"
 							href="slotted-content.html"
 							title="Use slot elements to allow more control over non-critical parts of your component.">
 							Slotted content
 						</a>
+						
+							
+
 						
 					</li>
 				
@@ -323,7 +323,7 @@
     <div class="main-content">
   		
   			<section class="title">
-	<h1>Selecting a route <code>page</code></h1>
+	<h1>Slotted content <code>page</code></h1>
 </section>
 
   		
@@ -331,7 +331,7 @@
   		
   			
   				<section class="description">
-    <p>Learn more about lit-html, with its special syntax for setting up event listeners and for passing properties to child components.</p>
+    <p>Use slot elements to allow more control over non-critical parts of your component.</p>
 
 </section>
 
@@ -347,30 +347,24 @@
     <h2>The problem</h2>
 <p>In this section we will:</p>
 <ul>
-<li>Listen for when the user selects a bus route from the list.</li>
-<li>Show a checkmark next to the selected route in the list.</li>
-<li>Display the selected route overlaying the map component.</li>
-<li>Get a list of vehicles for this route from the CTA bus tracker API.</li>
-<li>Pass the vehicles to <code>&lt;google-map-view&gt;</code>.</li>
+<li>Allow the consumer of our component to provide a complete alternative to the header, while still falling back to the header if customization is not wanted.</li>
 </ul>
 <h2>How to solve this problem</h2>
 <ul>
-<li>Use <a href="https://lit-html.polymer-project.org/">lit-html</a>'s <code>@</code> syntax to listen to a <strong>click</strong> event on each bus route in the list.</li>
-<li>Call a function, <code>_pickRoute()</code> that will be used to set the chosen route, call to the CTA bus tracker API to get a list of vehicles and then call <code>update()</code> on our component which triggers a rerender.</li>
-<li>Add some HTML to the footer to display the selected route as an overlay to the map component.</li>
-<li>Use lit-html's <code>.</code> (dot) syntax to pass properties to child components.</li>
+<li>Use the <code>&lt;slot&gt;</code> element and named slots to give the consumer the ability to <em>inject</em> DOM within your own shadow DOM's boundaries.</li>
 </ul>
 <h2>What you need to know</h2>
 <ul>
-<li>Like elements in the light DOM (the DOM the page renders with), elements in the shadow DOM can have event listeners. So you can use normal DOM methods like <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector">querySelector</a> to find elements, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">addEventListener</a> to listen to events.</li>
-<li>Use <code>connectedCallback()</code> to set up event listeners.</li>
-<li>Use <code>disconnectedCallback()</code> to remove event listeners. Using both of these lifecycle callbacks ensures there won't be memory leaks in your component.</li>
-<li>lit-html has a shorthand in its templating syntax for listening to events. <code>@click=${fn}</code> is a way to set up an event listener on an element. It <em>looks</em> like an attribute, but is not added as an attribute. Instead it calls <code>addEventListener()</code> under the hood. This allows you to have declarative templates that include information like the events listening to.</li>
-<li>Likewise, lit-html has a shorthand for setting properties. The <strong>dot</strong> notation, or <code>.vehicles=${vehicles}</code>. The dot is like setting a property in JavaScript, <code>foo.bar = 'baz'</code>. Like with event listeners, this is not part of HTML, but rather something that lit-html is layering over-top, to allow more declarative templating and less need for manual DOM manipulation.</li>
+<li>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot">slot</a> has a curious effect when used within shadow DOM. It will take DOM within the custom element's children and <em>inject</em> (but not move) those nodes as children of itself.</li>
+<li><strong>Named</strong> slots are used when you want to take <em>some</em> of the children content, but not all of it. This is useful when you have multiple things to be customized. It works like <code>&lt;slot name=&quot;header&quot;&gt;</code>, with the children needing to add a <code>slot</code> attribute.  <code>&lt;header slot=&quot;header&quot;&gt;</code>.</li>
 </ul>
 <h2>The solution</h2>
-<p>Set an <code>@click</code> listener on each bus route item that calls a <code>_pickRoute()</code> function. Set that function to fetch the list of vehicles for the selected route. Call <code>update()</code> immediately and when the vehicles are available. Finally pass the list of vehicles to <code>&lt;google-map-view&gt;</code> view the <code>.vehicles</code> syntax. In the next section we'll take these vehicles and display them as markers on the map.</p>
-<pre><code class="language-html">&lt;bus-tracker&gt;&lt;/bus-tracker&gt;
+<p>Wrap the <code>&lt;header&gt;</code> within the bus-tracker component with a <code>&lt;slot name=&quot;header&quot;&gt;</code>. This will completely replace the header if a child element provides the <code>slot=&quot;header&quot;</code> attribute value.</p>
+<pre><code class="language-html">&lt;bus-tracker&gt;
+  &lt;header slot=&quot;header&quot;&gt;
+    &lt;h1&gt;My Bus Tracker!&lt;/h1&gt;
+  &lt;/header&gt;
+&lt;/bus-tracker&gt;
 
 &lt;style&gt;
 html,
@@ -383,6 +377,15 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
+}
+bus-tracker {
+  --header-background: salmon;
+  --header-text-transform: capitalize;
+}
+header[slot=header] {
+  background: crimson;
+  color: wheat;
+  text-align: center;
 }
 &lt;/style&gt;
 &lt;template id=&quot;bt-template&quot;&gt;
@@ -412,7 +415,7 @@ body {
 
     header {
       box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
-      background-color: #313131;
+      background-color: var(--header-background, #313131);
       color: white;
       min-height: 60px;
       display: flex;
@@ -424,7 +427,7 @@ body {
     header h1 {
       text-align: center;
       font-size: 18px;
-      text-transform: uppercase;
+      text-transform: var(--header-text-transform, uppercase);
       letter-spacing: 1px;
       margin: 0;
     }
@@ -540,6 +543,8 @@ class GoogleMapView extends HTMLElement {
 
     let nodes = document.importNode(template.content, true);
     this.shadowRoot.append(nodes);
+    this.markers = null;
+    this._vehicles = null;
   }
 
   async connectedCallback() {
@@ -553,6 +558,31 @@ class GoogleMapView extends HTMLElement {
         lng: -87.623
       }
     });
+  }
+
+  get vehicles() {
+    return this._vehicles;
+  }
+
+  set vehicles(newVehicles) {
+    this._vehicles = newVehicles;
+    if (Array.isArray(this.markers)) {
+      this.markers.forEach(marker =&gt; {
+        marker.setMap(null);
+      });
+      this.markers = null;
+    }
+    if (newVehicles) {
+      this.markers = newVehicles.map(vehicle =&gt; {
+        return new google.maps.Marker({
+          position: {
+            lat: parseFloat(vehicle.lat),
+            lng: parseFloat(vehicle.lon)
+          },
+          map: this.map
+        });
+      });
+    }
   }
 }
 
@@ -660,14 +690,16 @@ class BusTracker extends HTMLElement {
     return html`
       ${styles}
       &lt;div class=&quot;top&quot;&gt;
-        &lt;header&gt;
-          &lt;h1&gt;${this.title}&lt;/h1&gt;
-          ${this.routes.isPending()
-            ? html`
-                &lt;p&gt;Loading routes…&lt;/p&gt;
-              `
-            : &quot;&quot;}
-        &lt;/header&gt;
+        &lt;slot name=&quot;header&quot;&gt;
+          &lt;header&gt;
+            &lt;h1&gt;${this.title}&lt;/h1&gt;
+            ${this.routes.isPending()
+              ? html`
+                  &lt;p&gt;Loading routes…&lt;/p&gt;
+                `
+              : &quot;&quot;}
+          &lt;/header&gt;
+        &lt;/slot&gt;
 
         &lt;ul class=&quot;routes-list&quot;&gt;
           ${this.routes.isResolved()
@@ -715,7 +747,7 @@ class BusTracker extends HTMLElement {
 customElements.define(&quot;bus-tracker&quot;, BusTracker);
 &lt;/script&gt;
 </code></pre>
-<div line-highlight='3-15,261-285,306,318-337,only'></div>
+<div line-highlight='2-4,23-27,331-340,only'></div>
 <div class='codepen'></div>
 
 </section>
@@ -755,7 +787,7 @@ customElements.define(&quot;bus-tracker&quot;, BusTracker);
 
   <div id="scripts">
     <script type="text/javascript">
-      var docObject = {"src":{"path":"src/web-components/selecting-route.md"},"description":"Learn more about lit-html, with its special syntax for setting up event listeners and for passing properties to child components. \n","name":"learn-web-components/select-a-route","title":"Selecting a route","type":"page","parent":"learn-web-components","order":6,"comment":" ","click":"=\"${() => this._pickRoute(this.route)}}\"","pathToRoot":"../.."};
+      var docObject = {"src":{"path":"src/web-components/slotted-content.md"},"description":"Use slot elements to allow more control over non-critical parts of your component. \n","name":"learn-web-components/slotted-content","title":"Slotted content","type":"page","parent":"learn-web-components","order":9,"comment":" ","click":"=\"${() => this._pickRoute(this.route)}}\"","pathToRoot":"../.."};
     </script>
 
     
