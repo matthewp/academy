@@ -501,7 +501,6 @@ header[slot=header] {
       cursor: pointer;
       background: white;
       border: 1px solid #dedede;
-      padding: 8px 8px 6px;
       margin: 1% 2%;
       border-radius: 25px;
       color: #2196f3;
@@ -531,6 +530,16 @@ header[slot=header] {
     .routes-list li.active:hover {
       border-color: #dedede;
       box-shadow: none;
+    }
+    .routes-list button {
+      width: 100%;
+      padding: 8px 8px 6px;
+      border: none;
+      border-radius: 25px;
+      background: transparent;
+      text-align: left;
+      font: inherit;
+      color: inherit;
     }
     .route-number {
       display: inline-block;
@@ -750,11 +759,14 @@ class BusTracker extends HTMLElement {
                 route =&gt; html`
                   &lt;li
                     class=${this.route === route ? &quot;active&quot; : &quot;&quot;}
-                    @click=${() =&gt; this._pickRoute(route)}
                   &gt;
-                    &lt;span class=&quot;route-number&quot;&gt;${route.rt}&lt;/span&gt;
-                    &lt;span class=&quot;route-name&quot;&gt;${route.rtnm}&lt;/span&gt;
-                    &lt;span class=&quot;check&quot;&gt;✔&lt;/span&gt;
+                    &lt;button type=&quot;button&quot;
+                      @click=${() =&gt; this._pickRoute(route)}
+                    &gt;
+                      &lt;span class=&quot;route-number&quot;&gt;${route.rt}&lt;/span&gt;
+                      &lt;span class=&quot;route-name&quot;&gt;${route.rtnm}&lt;/span&gt;
+                      &lt;span class=&quot;check&quot;&gt;✔&lt;/span&gt;
+                    &lt;/button&gt;
                   &lt;/li&gt;
                 `
               )
@@ -766,6 +778,7 @@ class BusTracker extends HTMLElement {
         ? html`
             &lt;button
               class=&quot;route-selected&quot;
+              @click=&quot;${() =&gt; this._pickRoute(this.route)}}&quot;
             &gt;
               &lt;small&gt;Route ${this.route.rt}:&lt;/small&gt; ${this.route.rtnm}
               ${this.vehicles.isRejected()
@@ -796,7 +809,7 @@ document.querySelector('bus-tracker').addEventListener('route', ev =&gt; {
 });
 &lt;/script&gt;
 </code></pre>
-<div line-highlight='7,30-44,342,345-350,412-416,only'></div>
+<div line-highlight='7,30-44,351,354-359,425-429,only'></div>
 <div class='codepen'></div>
 
 </section>
@@ -836,7 +849,7 @@ document.querySelector('bus-tracker').addEventListener('route', ev =&gt; {
 
   <div id="scripts">
     <script type="text/javascript">
-      var docObject = {"src":{"path":"src/web-components/custom-events.md"},"description":"Learn how to use custom events to provide information on the *state* of your component to parent elements. \n","name":"learn-web-components/dispatching-events","title":"Dispatching events","type":"page","parent":"learn-web-components","order":10,"comment":" ","click":"=\"${() => this._pickRoute(this.route)}}\"","pathToRoot":"../.."};
+      var docObject = {"src":{"path":"src/web-components/custom-events.md"},"description":"Learn how to use custom events to provide information on the *state* of your component to parent elements. \n","name":"learn-web-components/dispatching-events","title":"Dispatching events","type":"page","parent":"learn-web-components","order":10,"comment":" ","pathToRoot":"../.."};
     </script>
 
     
