@@ -11,6 +11,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
+  <meta name="description" content="Use slot elements to allow more control over non-critical parts of your component. 
+">
   <title>Bitovi Academy - Slotted content</title>
   
   <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
@@ -48,7 +50,7 @@
            						
            						">
 						<a class="page"
-							href="../advanced-javascript-training.html"
+							href="../learn-advanced-javascript.html"
 							title="This course covers all the hard but important stuff you should know when learning JavaScript.">
 							Advanced JavaScript
 						</a>
@@ -63,7 +65,7 @@
            						
            						">
 						<a class="page"
-							href="../dom-jquery-training.html"
+							href="../learn-dom-jquery.html"
 							title="Learn jQuery and the DOM APIs by building your own version of jQuery and using it to make a basic tabs widget.">
 							DOM and jQuery
 						</a>
@@ -78,7 +80,7 @@
            						
            						">
 						<a class="page"
-							href="../debugging-javascript-training.html"
+							href="../learn-to-debug-javascript.html"
 							title="This course covers the basics of JavaScript debugging.">
 							Debug JavaScript
 						</a>
@@ -93,9 +95,9 @@
            						
            						">
 						<a class="page"
-							href="../typescript.html"
+							href="../learn-typescript.html"
 							title="This course covers the basic essentials of TypeScript. At the end, you should be ready to develop projects in TypeScript.">
-							TypeScript
+							Learn TypeScript
 						</a>
 						
 					</li>
@@ -186,8 +188,23 @@
            						
            						">
 						<a class="page"
+							href="bus-tracker-component.html"
+							title="Build a more complex component that combines the usage of &lt;template&gt; and customElements, and sets up event listeners.">
+							bus-tracker component
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
 							href="listing-routes.html"
-							title="Learn lit-html by creating a component that lists bus routes from the CTA bus tracker API.">
+							title="Fetch a list of bus routes from the CTA bus tracker API and add them to the .routes-list element.">
 							Listing routes
 						</a>
 						
@@ -202,7 +219,7 @@
            						">
 						<a class="page"
 							href="select-a-route.html"
-							title="Learn more about lit-html, with its special syntax for setting up event listeners and for passing properties to child components.">
+							title="Learn how to use event listeners with a custom element to handle user interaction and update the DOM.">
 							Selecting a route
 						</a>
 						
@@ -287,9 +304,9 @@
            						
            						">
 						<a class="page"
-							href="../RxJS.html"
+							href="../learn-rxjs.html"
 							title="Learn RxJS by creating a validating credit card form.">
-							RxJS
+							Learn RxJS
 						</a>
 						
 					</li>
@@ -302,9 +319,10 @@
            						
            						">
 						<a class="page"
-							href="../angular.html"
-							title="Learn the basics of Angular.">
-							Angular
+							href="../learn-canjs.html"
+							title="This tutorial walks through building TodoMVC with StealJS. It includes KeyNote presentations
+covering CanJS core libraries.">
+							Learn CanJS
 						</a>
 						
 					</li>
@@ -326,11 +344,29 @@
 				
 			
 		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-angular.html"
+							title="Learn how to build a moderately complex application with Angular.">
+							Learn Angular
+						</a>
+						
+					</li>
+				
+			
+		
 	</ul>
 
 
   
-  <p class="border"><a href="..#courses">View More Courses</a></p>
+  <p class="border">
+      <a href="..#courses">View More Courses</a>
+      <a class='bit-academy-fullscreen' title='fullscreen' href="javascript://">[ ]</a>
+  </p>
 </div>
 
 	
@@ -362,7 +398,7 @@
     <h2>The problem</h2>
 <p>In this section we will:</p>
 <ul>
-<li>Allow the consumer of our component to provide a complete alternative to the header, while still falling back to the header if customization is not wanted.</li>
+<li>Allow the consumer of our component to provide a complete alternative to the header, while still falling back to the built-in header if customization is not wanted.</li>
 </ul>
 <h2>How to solve this problem</h2>
 <ul>
@@ -371,6 +407,20 @@
 <h2>What you need to know</h2>
 <ul>
 <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot">slot</a> has a curious effect when used within shadow DOM. It will take DOM within the custom element's children and <em>inject</em> (but not move) those nodes as children of itself.</li>
+<li>Default content can be specified by nesting DOM inside of the <code>&lt;slot&gt;</code> element.
+<pre><code class="language-js">let el1 = document.createElement('div');
+el1.attachShadow({ mode: 'open' });
+el1.shadowRoot.innerHTML = `&lt;slot&gt;This is using &lt;strong&gt;default&lt;/strong&gt; content.&lt;/slot&gt;`;
+
+let el2 = document.createElement('div');
+el2.attachShadow({ mode: 'open' });
+
+el2.shadowRoot.innerHTML = `&lt;slot&gt;This is using &lt;strong&gt;default&lt;/strong&gt; content.&lt;/slot&gt;`;
+el2.innerHTML = `This is using slotted content.`;
+
+document.body.append(el1, el2);
+</code></pre>
+  <div class='codepen'></div></li>
 <li><strong>Named</strong> slots are used when you want to take <em>some</em> of the children content, but not all of it. This is useful when you have multiple things to be customized. It works like <code>&lt;slot name=&quot;header&quot;&gt;</code>, with the children needing to add a <code>slot</code> attribute.  <code>&lt;header slot=&quot;header&quot;&gt;</code>.</li>
 </ul>
 <h2>The solution</h2>
@@ -794,13 +844,12 @@ customElements.define(&quot;bus-tracker&quot;, BusTracker);
         </div>
         <div class="pullout slack">
           <h6>Get help</h6>
-          <p>If you need help with an exercise, please reach out to us on
+          <p>If you need <a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y">help</a> with an exercise, please reach out to us on
              <a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y">Slack</a></p>
-             <!--<a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y"><img src="https://i.ibb.co/XS6n24B/slack.png"/></a>-->
         </div>
         <div class="pullout bug">
           <p>If you find a bug, please
-             <a href="https://github.com/bitovi/university/issues/new">create an issue</a> or email
+             <a href="https://github.com/bitovi/academy/issues/new">create an issue</a> or email
              <a href="mailto:contact@bitovi.com?Subject=Training%20Suggestion" target="_blank">contact@bitovi.com<a/></p>
         </div>
       </div>
@@ -815,7 +864,7 @@ customElements.define(&quot;bus-tracker&quot;, BusTracker);
 
   <div id="scripts">
     <script type="text/javascript">
-      var docObject = {"src":{"path":"src/web-components/slotted-content.md"},"description":"Use slot elements to allow more control over non-critical parts of your component. \n","name":"learn-web-components/slotted-content","title":"Slotted content","type":"page","parent":"learn-web-components","order":9,"comment":" ","pathToRoot":"../.."};
+      var docObject = {"src":{"path":"src/web-components/slotted-content.md"},"description":"Use slot elements to allow more control over non-critical parts of your component. \n","name":"learn-web-components/slotted-content","title":"Slotted content","type":"page","parent":"learn-web-components","order":9,"comment":" ","codepen":[["\"can\"","\"//unpkg.com/can@5/core.mjs\""],["\"can/everything\"","\"//unpkg.com/can@5/everything.mjs\""]],"pathToRoot":"../.."};
     </script>
 
     
@@ -832,13 +881,15 @@ customElements.define(&quot;bus-tracker&quot;, BusTracker);
     
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2302003-29"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2302003-12"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-2302003-29');
+
+      gtag('config', 'UA-2302003-12');
     </script>
+
   </div>
 </body>
 </html>

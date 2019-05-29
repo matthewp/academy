@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<!--####################################################################
+	THIS IS A GENERATED FILE — ANY CHANGES MADE WILL BE OVERWRITTEN
+
+	INSTEAD CHANGE:
+	source: src/angular/3-creating-components/creating-components.md
+	@page learn-angular/creating-components
+######################################################################## -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
+  <meta name="description" content="Learn how to create basic components in Angular and iterate through data using an Angular for loop. 
+">
+  <title>Bitovi Academy - Creating Components</title>
+  
+  <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
+  
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo">
+      <a href="https://www.bitovi.com/">Bitovi</a>
+    </div>
+    <ul>
+      <li><a href="https://www.bitovi.com/services">Services</a></li>
+      <li><a href="https://www.bitovi.com/client-work">Client Work</a></li>
+      <li><a href="https://www.bitovi.com/about">Our Team</a></li>
+      <li><a href="https://www.bitovi.com/open-source">Open Source</a></li>
+      <li><a href="https://www.bitovi.com/blog">Blog</a></li>
+      <li><a href=".." class="active">Academy</a></li>
+     </ul>
+     <a class="contact-popup hs-button brand button-smallest" href="https://www.bitovi.com/contact">Contact Us</a>
+  </div>
+
+  <div class="content">
+	
+		<div class="sidebar-left">
+  
+    
+	<ul>
+		
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-advanced-javascript.html"
+							title="This course covers all the hard but important stuff you should know when learning JavaScript.">
+							Advanced JavaScript
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-dom-jquery.html"
+							title="Learn jQuery and the DOM APIs by building your own version of jQuery and using it to make a basic tabs widget.">
+							DOM and jQuery
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-to-debug-javascript.html"
+							title="This course covers the basics of JavaScript debugging.">
+							Debug JavaScript
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-typescript.html"
+							title="This course covers the basic essentials of TypeScript. At the end, you should be ready to develop projects in TypeScript.">
+							Learn TypeScript
+						</a>
+						
+					</li>
+				
+			
+		
+			
+		
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-web-components.html"
+							title="">
+							Learn Web Components
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-rxjs.html"
+							title="Learn RxJS by creating a validating credit card form.">
+							Learn RxJS
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-canjs.html"
+							title="This tutorial walks through building TodoMVC with StealJS. It includes KeyNote presentations
+covering CanJS core libraries.">
+							Learn CanJS
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../training.html"
+							title="Learn how to prepare and give a training.">
+							Giving a Training
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						parent
+           						expanded">
+						<a class="page"
+							href="../learn-angular.html"
+							title="Learn how to build a moderately complex application with Angular.">
+							Learn Angular
+						</a>
+						
+							
+	<ul>
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="why-angular.html"
+							title="Why Angular is a great choice for modern web application development.">
+							Why Angular
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="building-our-first-app.html"
+							title="Learn how to generate an Angular application with it&#x27;s command line interface (CLI).">
+							Generate an App
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="current
+           						parent
+           						expanded">
+						<a class="page"
+							href="creating-components.html"
+							title="Learn how to create basic components in Angular and iterate through data using an Angular for loop.">
+							Creating Components
+						</a>
+						
+							
+
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="creating-pipes.html"
+							title="Learn how to create a custom pipe in Angular that returns a modified version of a string.">
+							Creating Pipes
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="adding-routing.html"
+							title="Learn how to add basic routing to components in an Angular application.">
+							Adding Routing
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="creating-navigation.html"
+							title="Learn how to create dynamic links with Angular that navigate to different parts of an application.">
+							Creating Navigation
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="restaurant-service.html"
+							title="Learn how to write an Angular service that gets data from the server.">
+							Writing a Restaurant Service
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="pull-restaurant-data-into-view.html"
+							title="Learn how to render API data into HTML with a view.">
+							Use Restaurant API data
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="state-city-options.html"
+							title="Learn how to create a Reactive Form with Angular. We will create a Reactive Form in the Restaurant component with city and state dropdown inputs.">
+							City &amp; State Options
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="form-value-changes.html"
+							title="Learn how to listen to form value changes with Angular.">
+							Filter Cities by State
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="updating-service-params.html"
+							title="Learn  how to make a service take multiple parameters.">
+							Filter Restaurants by City
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="declarative-state.html"
+							title="Modify Restaurants component to derive state via RxJS streams">
+							Optional: Declarative State
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="writing-unit-tests.html"
+							title="Write a unit test for a service in Angular">
+							Writing Unit Tests
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="nested-routes.html"
+							title="Creating nested restaurant routes">
+							Nested Restaurant Routes
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="building-order-form.html"
+							title="Building the Order Form">
+							Building the Order Form
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="order-service.html"
+							title="Writing the Order Service">
+							Order Service
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="order-history-component.html"
+							title="Writing the Order History Component">
+							Order History Component
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="real-time-connection.html"
+							title="Updating Order History View with Real Time Connection">
+							Real Time Connections
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="deploy-app.html"
+							title="Deploying App">
+							Deploy App
+						</a>
+						
+					</li>
+				
+			
+		
+	</ul>
+
+
+						
+					</li>
+				
+			
+		
+	</ul>
+
+
+  
+  <p class="border">
+      <a href="..#courses">View More Courses</a>
+      <a class='bit-academy-fullscreen' title='fullscreen' href="javascript://">[ ]</a>
+  </p>
+</div>
+
+	
+	<article class="main">
+    <div class="main-content">
+  		
+  			<section class="title">
+	<h1>Creating Components <code>page</code></h1>
+</section>
+
+  		
+
+  		
+  			
+  				<section class="description">
+    <p>Learn how to create basic components in Angular and iterate through data using an Angular for loop.</p>
+
+</section>
+
+  			
+  		
+
+  		
+  			
+  				
+  			
+  			
+  				<section class="body">
+    <h2>Overview</h2>
+<p>In this part, we will:</p>
+<ul>
+<li>Install already created assets</li>
+<li>Learn about components</li>
+<li>Learn about displaying data in component templates</li>
+<li>Create a home component</li>
+<li>Use interpolation binding in our home component view</li>
+<li>Learn about directives</li>
+<li>Create a restaurant component that shows a list of restaurants</li>
+<li>Learn about pipes</li>
+<li>Create a pipe to create an image path</li>
+</ul>
+<h2>Problem 1: Creating a Home Component With a Dynamic Title Member</h2>
+<p>Let's begin to build out the main views of our app. We'll create a home view now,
+and restaurant list view in the next exercise.</p>
+<h2>P1: What You Need to Know</h2>
+<ul>
+<li>How to generate a new Angular component</li>
+<li>How to bind data in a component to it's template</li>
+</ul>
+<h2>Generate Components</h2>
+<p>In Angular, Components are the basic building blocks that help us craft the UI. They are classes that handle views, allow management of user interaction, and displaying information via data binding. Data binding is the term for connecting data or information to the UI. An example would be an input field that a user enters a value into.</p>
+<p>Recommended reading: <a href="https://angular.io/guide/lifecycle-hooks" target="\_blank" >Angular Lifecyle Hooks</a></p>
+<p>To generate a component class, you run:</p>
+<pre><code class="language-shell">ng g component home
+</code></pre>
+<p>This will create a new component for us and import it in our root module.</p>
+<pre><code class="language-code">├── src/
+|   ├── app/
+|   |   ├── home/
+|   |       |── home.component.ts
+|   |       |── home.component.spec.ts
+|   |       |── home.component.less
+|   |       |── home.component.html
+</code></pre>
+<p>Generated components have the same structure - a name.component.ts file that will contain the boilerplate code for the Angular component class. This class will also have a component decorator pointing to the name.component.less file for styles, and the name.component.html file for it's template. Styles and templates can also be written inline in the decorator with backticks to escape the code using the keys <code>style</code> and <code>template</code>.</p>
+<h2>Bind Data to Components</h2>
+<p>Like most modern JS frameworks, Angular provides us a way of displaying data dynamically in the DOM. Properties declared in a component can be used in the component template with double curly brace syntax: <code>{{myTitle}}</code></p>
+<pre><code class="language-html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.2.1/rxjs.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/core-js/2.5.7/core.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/core@7.2.0/bundles/core.umd.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.26/zone.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/common@7.2.0/bundles/common.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/compiler@7.2.0/bundles/compiler.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser@7.2.0/bundles/platform-browser.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser-dynamic@7.2.0/bundles/platform-browser-dynamic.umd.js&quot;&gt;&lt;/script&gt;
+&lt;my-app&gt;&lt;/my-app&gt;
+&lt;script type=&quot;typescript&quot;&gt;
+// app.js
+const { Component, VERSION } = ng.core;
+
+@Component({
+  selector: 'my-app',
+  template: `
+   &lt;p&gt;{{myTitle}}&lt;/p&gt;
+  `
+})
+class AppComponent {
+  public myTitle: string = 'Hello world.';
+  constructor() {
+  }
+}
+
+// main.js
+const { BrowserModule } = ng.platformBrowser;
+const { NgModule } = ng.core;
+const { CommonModule } = ng.common;
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    CommonModule,
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+  providers: []
+})
+class AppModule {}
+
+const { platformBrowserDynamic } = ng.platformBrowserDynamic;
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch(err =&gt; console.error(err));
+&lt;/script&gt;
+
+
+</code></pre>
+<div class='codepen'></div>
+<div line-highlight='17,21,only'></div>
+<p>Data can also be passed to child components. Data can be passed with expression context to determine if passed data is just a string for example, or a property on the component class. This example shows passing data as a string as well as a component member using the <code>[ ]</code> syntax.</p>
+<pre><code class="language-html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.2.1/rxjs.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/core-js/2.5.7/core.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/core@7.2.0/bundles/core.umd.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.26/zone.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/common@7.2.0/bundles/common.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/compiler@7.2.0/bundles/compiler.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser@7.2.0/bundles/platform-browser.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser-dynamic@7.2.0/bundles/platform-browser-dynamic.umd.js&quot;&gt;&lt;/script&gt;
+&lt;my-app&gt;&lt;/my-app&gt;
+&lt;script type=&quot;typescript&quot;&gt;
+// app.js
+const { Component, VERSION, Input } = ng.core;
+
+@Component({
+  selector: 'child-component',
+  template: `
+    &lt;p&gt;{{myData}}&lt;/p&gt;
+    &lt;p&gt;{{myObject | json}}&lt;/p&gt;
+  `
+})
+class ChildComponent {
+  @Input() myData: string;
+  @Input() myObject: any;
+  constructor() {}
+}
+
+@Component({
+  selector: 'my-app',
+  template: `
+   &lt;child-component myData=&quot;Hello string.&quot;&gt;&lt;/child-component&gt;
+   &lt;child-component [myData]=&quot;myTitle&quot;&gt;&lt;/child-component&gt;
+   &lt;child-component [myObject]=&quot;sillyObject&quot;&gt;&lt;/child-component&gt;
+  `
+})
+class AppComponent {
+  public myTitle: string = 'Hello world.';
+  public sillyObject = {
+    name: 'hello there',
+    id: 5
+  }
+  constructor() {
+  }
+}
+
+// main.js
+const { BrowserModule } = ng.platformBrowser;
+const { NgModule } = ng.core;
+const { CommonModule } = ng.common;
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    CommonModule,
+  ],
+  declarations: [AppComponent, ChildComponent],
+  bootstrap: [AppComponent],
+  providers: []
+})
+class AppModule {}
+
+const { platformBrowserDynamic } = ng.platformBrowserDynamic;
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch(err =&gt; console.error(err));
+&lt;/script&gt;
+
+
+</code></pre>
+<div class='codepen'></div>
+<div line-highlight='30-32,only'></div>
+<h2>P1: Technical Requirements</h2>
+<p>Create a component that displays a title read from a component's <code>title</code> member.</p>
+<p><img src="../static/img/angular/3-creating-components/home-component.png"
+style="border: solid 1px black; max-width: 640px;"/></p>
+<p>The component should provide the following HTML:</p>
+<pre><code class="language-html">&lt;div class=&quot;homepage&quot;&gt;
+  &lt;img src=&quot;./assets/images/homepage-hero.jpg&quot; alt=&quot;Restaurant table with glasses.&quot; width=&quot;250&quot; height=&quot;380&quot; /&gt;
+  &lt;h1&gt;&lt;!-- TITLE GOES HERE --&gt;&lt;/h1&gt;
+  &lt;p&gt;
+    We make it easier than ever to order gourmet food
+    from your favorite local restaurants.
+  &lt;/p&gt;
+  &lt;p&gt;
+     &lt;a class=&quot;btn&quot; routerLink=&quot;/restaurants&quot; role=&quot;button&quot;&gt;Choose a Restaurant&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>Notice the <code>TITLE GOES HERE</code> part of the HTML. <code>TITLE GOES HERE</code> should be replaced by
+something that reads the component's <code>title</code> property.</p>
+</blockquote>
+<p>The component's <code>title</code> member should have a string value of
+<code>&quot;Ordering food has never been easier&quot;</code>.</p>
+<h2>P1: Setup</h2>
+<p>To get this application up and running quicker so we can focus on the architecture, we'll import some pre-created styles and assets to save us time.</p>
+<p>✏️ Run:</p>
+<pre><code class="language-shell">npm install place-my-order-assets@0.1 --save
+</code></pre>
+<p>Open the <code>angular.json</code> file, and make the following changes to include these files in our build process. This will copy the images into our assets directory for when we serve our application.</p>
+<blockquote>
+<p>Pay close attention that you're making these changes under the &quot;build&quot; key and not the &quot;test&quot; key, as the code looks very similar. The build key should be close to line 17.</p>
+</blockquote>
+<p>✏️ Update <strong>angular.json</strong>:</p>
+<pre><code class="language-json">{
+  &quot;$schema&quot;: &quot;./node_modules/@angular/cli/lib/config/schema.json&quot;,
+  &quot;version&quot;: 1,
+  &quot;newProjectRoot&quot;: &quot;projects&quot;,
+  &quot;projects&quot;: {
+    &quot;place-my-order&quot;: {
+      &quot;root&quot;: &quot;&quot;,
+      &quot;sourceRoot&quot;: &quot;src&quot;,
+      &quot;projectType&quot;: &quot;application&quot;,
+      &quot;prefix&quot;: &quot;pmo&quot;,
+      &quot;schematics&quot;: {
+        &quot;@schematics/angular:component&quot;: {
+          &quot;style&quot;: &quot;less&quot;
+        }
+      },
+      &quot;architect&quot;: {
+        &quot;build&quot;: {
+          &quot;builder&quot;: &quot;@angular-devkit/build-angular:browser&quot;,
+          &quot;options&quot;: {
+            &quot;outputPath&quot;: &quot;dist/place-my-order&quot;,
+            &quot;index&quot;: &quot;src/index.html&quot;,
+            &quot;main&quot;: &quot;src/main.ts&quot;,
+            &quot;polyfills&quot;: &quot;src/polyfills.ts&quot;,
+            &quot;tsConfig&quot;: &quot;src/tsconfig.app.json&quot;,
+            &quot;assets&quot;: [
+              &quot;src/favicon.ico&quot;,
+              &quot;src/assets&quot;,
+              {
+                &quot;glob&quot;: &quot;**/*&quot;,
+                &quot;input&quot;: &quot;./node_modules/place-my-order-assets/images/&quot;,
+                &quot;output&quot;: &quot;./assets/images&quot;
+              }
+            ],
+            &quot;styles&quot;: [
+              &quot;src/styles.less&quot;,
+              &quot;./node_modules/place-my-order-assets/less/styles.less&quot;
+            ],
+            &quot;scripts&quot;: [],
+            &quot;es5BrowserSupport&quot;: true
+          },
+          &quot;configurations&quot;: {
+            &quot;production&quot;: {
+              &quot;fileReplacements&quot;: [
+                {
+                  &quot;replace&quot;: &quot;src/environments/environment.ts&quot;,
+                  &quot;with&quot;: &quot;src/environments/environment.prod.ts&quot;
+                }
+              ],
+              &quot;optimization&quot;: true,
+              &quot;outputHashing&quot;: &quot;all&quot;,
+              &quot;sourceMap&quot;: false,
+              &quot;extractCss&quot;: true,
+              &quot;namedChunks&quot;: false,
+              &quot;aot&quot;: true,
+              &quot;extractLicenses&quot;: true,
+              &quot;vendorChunk&quot;: false,
+              &quot;buildOptimizer&quot;: true,
+              &quot;budgets&quot;: [
+                {
+                  &quot;type&quot;: &quot;initial&quot;,
+                  &quot;maximumWarning&quot;: &quot;2mb&quot;,
+                  &quot;maximumError&quot;: &quot;5mb&quot;
+                }
+              ]
+            }
+          }
+        },
+        &quot;serve&quot;: {
+          &quot;builder&quot;: &quot;@angular-devkit/build-angular:dev-server&quot;,
+          &quot;options&quot;: {
+            &quot;browserTarget&quot;: &quot;place-my-order:build&quot;
+          },
+          &quot;configurations&quot;: {
+            &quot;production&quot;: {
+              &quot;browserTarget&quot;: &quot;place-my-order:build:production&quot;
+            }
+          }
+        },
+        &quot;extract-i18n&quot;: {
+          &quot;builder&quot;: &quot;@angular-devkit/build-angular:extract-i18n&quot;,
+          &quot;options&quot;: {
+            &quot;browserTarget&quot;: &quot;place-my-order:build&quot;
+          }
+        },
+        &quot;test&quot;: {
+          &quot;builder&quot;: &quot;@angular-devkit/build-angular:karma&quot;,
+          &quot;options&quot;: {
+            &quot;main&quot;: &quot;src/test.ts&quot;,
+            &quot;polyfills&quot;: &quot;src/polyfills.ts&quot;,
+            &quot;tsConfig&quot;: &quot;src/tsconfig.spec.json&quot;,
+            &quot;karmaConfig&quot;: &quot;src/karma.conf.js&quot;,
+            &quot;styles&quot;: [
+              &quot;src/styles.less&quot;
+            ],
+            &quot;scripts&quot;: [],
+            &quot;assets&quot;: [
+              &quot;src/favicon.ico&quot;,
+              &quot;src/assets&quot;
+            ]
+          }
+        },
+        &quot;lint&quot;: {
+          &quot;builder&quot;: &quot;@angular-devkit/build-angular:tslint&quot;,
+          &quot;options&quot;: {
+            &quot;tsConfig&quot;: [
+              &quot;src/tsconfig.app.json&quot;,
+              &quot;src/tsconfig.spec.json&quot;
+            ],
+            &quot;exclude&quot;: [
+              &quot;**/node_modules/**&quot;
+            ]
+          }
+        }
+      }
+    },
+    &quot;place-my-order-e2e&quot;: {
+      &quot;root&quot;: &quot;e2e/&quot;,
+      &quot;projectType&quot;: &quot;application&quot;,
+      &quot;prefix&quot;: &quot;&quot;,
+      &quot;architect&quot;: {
+        &quot;e2e&quot;: {
+          &quot;builder&quot;: &quot;@angular-devkit/build-angular:protractor&quot;,
+          &quot;options&quot;: {
+            &quot;protractorConfig&quot;: &quot;e2e/protractor.conf.js&quot;,
+            &quot;devServerTarget&quot;: &quot;place-my-order:serve&quot;
+          },
+          &quot;configurations&quot;: {
+            &quot;production&quot;: {
+              &quot;devServerTarget&quot;: &quot;place-my-order:serve:production&quot;
+            }
+          }
+        },
+        &quot;lint&quot;: {
+          &quot;builder&quot;: &quot;@angular-devkit/build-angular:tslint&quot;,
+          &quot;options&quot;: {
+            &quot;tsConfig&quot;: &quot;e2e/tsconfig.e2e.json&quot;,
+            &quot;exclude&quot;: [
+              &quot;**/node_modules/**&quot;
+            ]
+          }
+        }
+      }
+    }
+  },
+  &quot;defaultProject&quot;: &quot;place-my-order&quot;
+}
+        
+
+</code></pre>
+<div line-highlight='25-39,only'></div>
+<p><strong>Any time changes are made to the <code>angular.json</code> file, we need to restart our server to catch the new changes.</strong></p>
+<p>✏️ <strong>Restart your server.</strong></p>
+<p>While we are building the component, it will be nice to see it in the
+application. One of the ways components can be rendered is by putting them in markup. We'll do this by putting our <code>&lt;pmo-home&gt;&lt;/pmo-home&gt;</code> tag in our base app component markup.  To see the
+<code>&lt;pmo-home&gt;</code> component, do the following.</p>
+<p>✏️ Run:</p>
+<pre><code class="language-shell">ng g component home
+</code></pre>
+<p>✏️ Update <strong>src/app/app.component.html</strong> to be:</p>
+<pre><code class="language-html">&lt;h1&gt;Place My Order App: Coming Soon!&lt;/h1&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+
+&lt;pmo-home&gt;&lt;/pmo-home&gt;
+</code></pre>
+<div line-highlight='4'></div>
+<p>✏️ Update <strong>src/app/home/home.component.html</strong> to be:</p>
+<pre><code class="language-html">&lt;div class=&quot;homepage&quot;&gt;
+  &lt;img src=&quot;./assets/images/homepage-hero.jpg&quot; alt=&quot;Restaurant table with glasses.&quot; width=&quot;250&quot; height=&quot;380&quot; /&gt;
+  &lt;h1&gt;&lt;!-- TITLE GOES HERE --&gt;&lt;/h1&gt;
+  &lt;p&gt;
+    We make it easier than ever to order gourmet food
+    from your favorite local restaurants.
+  &lt;/p&gt;
+  &lt;p&gt;
+     &lt;a class=&quot;btn&quot; routerLink=&quot;/restaurants&quot; role=&quot;button&quot;&gt;Choose a Restaurant&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Run <code>npm run start</code>, and your app should compile with no errors, and you'll be able to see the home component. Later we'll move the home component to it's own page with a unique route.</p>
+<h2>P1: How to Verify Your Solution is Correct</h2>
+<p>✏️ Update the spec file  <strong>src/app/home/home.component.spec.ts</strong> to be:</p>
+<pre><code class="language-ts">import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { HomeComponent } from './home.component';
+
+describe('HomeComponent', () =&gt; {
+  let component: HomeComponent;
+  let fixture: ComponentFixture&lt;HomeComponent&gt;;
+
+  beforeEach(async(() =&gt; {
+    TestBed.configureTestingModule({
+      declarations: [ HomeComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() =&gt; {
+    fixture = TestBed.createComponent(HomeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () =&gt; {
+    expect(component).toBeTruthy();
+  });
+
+  it('should render title in a h1 tag', () =&gt; {
+    const fixture = TestBed.createComponent(HomeComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Ordering food has never been easier');
+  });
+
+  it('should have a member &quot;title&quot; on the component', () =&gt; {
+    const fixture = TestBed.createComponent(HomeComponent);
+    fixture.detectChanges();
+    expect(fixture.componentInstance.title).toContain('Ordering food has never been easier');
+  });
+
+});
+
+</code></pre>
+<blockquote>
+<p>If you've implemented the solution correctly, when you run <code>npm run test</code> all tests will pass!</p>
+</blockquote>
+<h2>P1: Solution</h2>
+<p>✏️ Update <strong>src/app/home/home.component.html</strong></p>
+<pre><code class="language-html">&lt;div class=&quot;homepage&quot;&gt;
+  &lt;img src=&quot;./assets/images/homepage-hero.jpg&quot; alt=&quot;Restaurant table with glasses.&quot; width=&quot;250&quot; height=&quot;380&quot; /&gt;
+  &lt;h1&gt;{{title}}&lt;/h1&gt;
+  &lt;p&gt;
+    We make it easier than ever to order gourmet food
+    from your favorite local restaurants.
+  &lt;/p&gt;
+  &lt;p&gt;
+     &lt;a class=&quot;btn&quot; routerLink=&quot;/restaurants&quot; role=&quot;button&quot;&gt;Choose a Restaurant&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>src/app/home/home.component.ts</strong></p>
+<pre><code class="language-ts">import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'pmo-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.less']
+})
+export class HomeComponent implements OnInit {
+  public title: string = 'Ordering food has never been easier';
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+</code></pre>
+<div line-highlight='9'></div>
+<h2>Problem 2: Write Restaurant Component Markup that Displays a List of Restaurants</h2>
+<p>We want to display a list of restaurants in our UI once the data has been set on the restaurants member.  It will look like:</p>
+<p><img src="../static/img/angular/3-creating-components/restaurant-component.png"
+style="border: solid 1px black; max-width: 640px;"/></p>
+<blockquote>
+<p>Note: We will fix the missing images in the next step.</p>
+</blockquote>
+<h2>P2: What You Need to Know</h2>
+<p>To solve this exercise, you'll need to learn some of Angular's more common
+template directives. Template directives in Angular help us iterate through and manipulate data we've bound to the DOM. You'll need some of the following:</p>
+<ul>
+<li>*ngIf - conditionally show content.</li>
+<li>*ngFor - iterate through a list and create content for each item in the list.</li>
+<li>ng-container - a container for content that is not rendered, but can be referenced by other directives.</li>
+<li>ng-class - set classes on elements.</li>
+</ul>
+<h2>*ngIf</h2>
+<p><a href="https://angular.io/api/common/NgIf" target="\_blank">ngIf</a> is a structural directive that allows us to conditionally render content. It can be paired with <a href="https://angular.io/guide/structural-directives#the-ng-template" target="\_blank">ng-template</a> to render an <code>else</code> block.</p>
+<p>This example shows content blocks based on the value of boolean <code>showMyContent</code>.</p>
+<pre><code class="language-html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.2.1/rxjs.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/core-js/2.5.7/core.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/core@7.2.0/bundles/core.umd.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.26/zone.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/common@7.2.0/bundles/common.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/compiler@7.2.0/bundles/compiler.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser@7.2.0/bundles/platform-browser.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser-dynamic@7.2.0/bundles/platform-browser-dynamic.umd.js&quot;&gt;&lt;/script&gt;
+&lt;my-app&gt;&lt;/my-app&gt;
+&lt;script type=&quot;typescript&quot;&gt;
+// app.js
+const { Component, VERSION } = ng.core;
+
+@Component({
+  selector: 'my-app',
+  template: `
+    &lt;div *ngIf=&quot;showMyContent; else showMyFalseTemplate&quot;&gt;
+      I will render if showMyContent is true.
+    &lt;/div&gt;
+    &lt;ng-template #showMyFalseTemplate&gt;
+      I render if showMyContent is not true
+    &lt;/ng-template&gt;
+  `
+})
+class AppComponent {
+  public showMyContent: boolean = false;
+  constructor() {
+  }
+}
+
+// main.js
+const { BrowserModule } = ng.platformBrowser;
+const { NgModule } = ng.core;
+const { CommonModule } = ng.common;
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    CommonModule,
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+  providers: []
+})
+class AppModule {}
+
+const { platformBrowserDynamic } = ng.platformBrowserDynamic;
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch(err =&gt; console.error(err));
+&lt;/script&gt;
+
+
+</code></pre>
+<div class='codepen'></div>
+<div line-highlight='17-22, 26,only'></div>
+<h2>*ngFor</h2>
+<p><a href="https://angular.io/api/common/NgForOf" target="\_blank">ngFor</a> is a structural directive that allows to iteratively create content in our templates.</p>
+<p>This example displays each name in the <code>myList</code> array in an <code>li</code> tag.</p>
+<pre><code class="language-html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.2.1/rxjs.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/core-js/2.5.7/core.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/core@7.2.0/bundles/core.umd.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.26/zone.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/common@7.2.0/bundles/common.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/compiler@7.2.0/bundles/compiler.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser@7.2.0/bundles/platform-browser.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser-dynamic@7.2.0/bundles/platform-browser-dynamic.umd.js&quot;&gt;&lt;/script&gt;
+&lt;my-app&gt;&lt;/my-app&gt;
+&lt;script type=&quot;typescript&quot;&gt;
+// app.js
+const { Component, VERSION } = ng.core;
+
+@Component({
+  selector: 'my-app',
+  template: `
+    &lt;ul&gt;
+      &lt;li *ngFor=&quot;let name of myList&quot;&gt;{{name}}&lt;/li&gt; 
+    &lt;/ul&gt;
+  `
+})
+class AppComponent {
+  public myList: string[] = ['blue', 'charlie', 'delta', 'echo'];
+  constructor() {
+  }
+}
+
+// main.js
+const { BrowserModule } = ng.platformBrowser;
+const { NgModule } = ng.core;
+const { CommonModule } = ng.common;
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    CommonModule,
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+  providers: []
+})
+class AppModule {}
+
+const { platformBrowserDynamic } = ng.platformBrowserDynamic;
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch(err =&gt; console.error(err));
+&lt;/script&gt;
+
+
+</code></pre>
+<div class='codepen'></div>
+<div line-highlight='14-26,only'></div>
+<h2>ng-container</h2>
+<p><a href="https://angular.io/guide/structural-directives#ngcontainer" target="\_blank">ng-container</a> is an element that allows us to create template bindings without creating a DOM element. Only one structural directive is allowed per host element (to avoid confusion around which directive would take precedence) making this directive handy for when we have several logic directives to apply to content.</p>
+<p>This example shows using logic directives to display data without creating additional DOM elements.</p>
+<pre><code class="language-html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.2.1/rxjs.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/core-js/2.5.7/core.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/core@7.2.0/bundles/core.umd.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.26/zone.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/common@7.2.0/bundles/common.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/compiler@7.2.0/bundles/compiler.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser@7.2.0/bundles/platform-browser.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser-dynamic@7.2.0/bundles/platform-browser-dynamic.umd.js&quot;&gt;&lt;/script&gt;
+&lt;my-app&gt;&lt;/my-app&gt;
+&lt;script type=&quot;typescript&quot;&gt;
+// app.js
+const { Component, VERSION } = ng.core;
+
+@Component({
+  selector: 'my-app',
+  template: `
+    &lt;ng-container&gt;
+      &lt;p&gt;Inspect me using dev tools. Look, Ma, no ng-container!&lt;/p&gt;
+    &lt;/ng-container&gt;
+    &lt;ng-container *ngIf=&quot;certainThing&quot;&gt;
+      &lt;ng-container *ngFor=&quot;let thing of myThings&quot;&gt;{{thing.name}} {{thing.id}}&lt;/ng-container&gt;
+    &lt;/ng-container&gt;
+  `
+})
+class AppComponent {
+  public certainThing: boolean = true;
+  myThings : any[] = [
+    {name: 'Blue', id: 001},
+    {name: 'Charlie', id: 002},
+    {name: 'Delta', id: 003},
+    {name: 'Echo', id: 004}
+  ]
+  constructor() {
+  }
+}
+
+// main.js
+const { BrowserModule } = ng.platformBrowser;
+const { NgModule } = ng.core;
+const { CommonModule } = ng.common;
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    CommonModule,
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+  providers: []
+})
+class AppModule {}
+
+const { platformBrowserDynamic } = ng.platformBrowserDynamic;
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch(err =&gt; console.error(err));
+&lt;/script&gt;
+
+
+</code></pre>
+<div class='codepen'></div>
+<div line-highlight='17-22,only'></div>
+<h2>ng-class</h2>
+<p>The <a href="https://angular.io/api/common/NgClass" target="\_blank">ng-class</a> directive is a way to set classes on elements based on boolean logic. ng-class can take a single class, an array of classes, key value pairs with boolean values, or regexes.</p>
+<p>This example shows various ways classes can be added to elements.</p>
+<pre><code class="language-html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.2.1/rxjs.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/core-js/2.5.7/core.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/core@7.2.0/bundles/core.umd.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.26/zone.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/common@7.2.0/bundles/common.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/compiler@7.2.0/bundles/compiler.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser@7.2.0/bundles/platform-browser.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser-dynamic@7.2.0/bundles/platform-browser-dynamic.umd.js&quot;&gt;&lt;/script&gt;
+&lt;my-app&gt;&lt;/my-app&gt;
+&lt;script type=&quot;typescript&quot;&gt;
+// app.js
+const { Component, VERSION } = ng.core;
+
+@Component({
+  selector: 'my-app',
+  template: `
+  &lt;div [ngClass]=&quot;'first second'&quot;&gt;...&lt;/div&gt;
+
+  &lt;div [ngClass]=&quot;['first', 'second']&quot;&gt;...&lt;/div&gt;
+
+  &lt;div [ngClass]=&quot;{'first': true, 'second': true, 'third': false}&quot;&gt;...&lt;/div&gt;
+
+  &lt;div [ngClass]=&quot;stringExp|arrayExp|objExp&quot;&gt;...&lt;/div&gt;
+
+  &lt;div [ngClass]=&quot;{'class1 class2 class3' : true}&quot;&gt;...&lt;/div&gt;
+
+  &lt;div [ngClass]=&quot;{'my-active-class' : classIsActive}&quot;&gt;
+    Setting classes
+  &lt;/div&gt;
+  &lt;button (click)=&quot;classIsActive = classIsActive ? false: true&quot;&gt;set class active&lt;/button&gt; 
+  `
+})
+class AppComponent {
+  public classIsActive: boolean = false;
+  constructor() {
+  }
+}
+
+// main.js
+const { BrowserModule } = ng.platformBrowser;
+const { NgModule } = ng.core;
+const { CommonModule } = ng.common;
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    CommonModule,
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+  providers: []
+})
+class AppModule {}
+
+const { platformBrowserDynamic } = ng.platformBrowserDynamic;
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch(err =&gt; console.error(err));
+&lt;/script&gt;
+&lt;style&gt;
+    .my-active-class {
+      background: pink;
+    }
+  &lt;/style&gt;
+  
+
+</code></pre>
+<div class='codepen'></div>
+<div line-highlight='17, 19, 21, 23,25, 27-30, 34, only'></div>
+<p>Notice in the above example our <code>ng-class</code> is surrounded by <code>[ ]</code>. This signals that we're passing in an object, instead of just a string. When using <a href="https://angular.io/guide/template-syntax#property-binding--property-" target="\_blank">property binding</a>, <code>ngClass=&quot;value&quot;</code> will evaluate the value as a string of <em>&quot;value&quot;</em> and <code>[ngClass]=&quot;value&quot;</code> as whatever the component property value is.</p>
+<pre><code class="language-html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.2.1/rxjs.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/core-js/2.5.7/core.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/core@7.2.0/bundles/core.umd.js&quot;/&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.26/zone.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/common@7.2.0/bundles/common.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/compiler@7.2.0/bundles/compiler.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser@7.2.0/bundles/platform-browser.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@angular/platform-browser-dynamic@7.2.0/bundles/platform-browser-dynamic.umd.js&quot;&gt;&lt;/script&gt;
+&lt;my-app&gt;&lt;/my-app&gt;
+&lt;script type=&quot;typescript&quot;&gt;
+// app.js
+const { Component, VERSION } = ng.core;
+
+@Component({
+  selector: 'my-app',
+  template: `
+  &lt;div ngClass=&quot;my-active-class&quot;&gt;...&lt;/div&gt;
+
+  &lt;div [ngClass]=&quot;classSetOnComponent&quot;&gt;...&lt;/div&gt;
+  `
+})
+class AppComponent {
+  public classSetOnComponent: string = 'my-active-class';
+  constructor() {
+  }
+}
+
+// main.js
+const { BrowserModule } = ng.platformBrowser;
+const { NgModule } = ng.core;
+const { CommonModule } = ng.common;
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    CommonModule,
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+  providers: []
+})
+class AppModule {}
+
+const { platformBrowserDynamic } = ng.platformBrowserDynamic;
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch(err =&gt; console.error(err));
+&lt;/script&gt;
+&lt;style&gt;
+    .my-active-class {
+      background: pink;
+    }
+  &lt;/style&gt;
+  
+
+</code></pre>
+<div class='codepen'></div>
+<div line-highlight='17,19,23,only'></div>
+<h2>P2: Technical Requirements</h2>
+<p>Here is the markup to show for each restaurant:</p>
+<pre><code class="language-html">&lt;img src=&quot;{{restaurant.images.thumbnail}}&quot; width=&quot;100&quot; height=&quot;100&quot;&gt;
+&lt;h3&gt;{{restaurant.name}}&lt;/h3&gt;
+
+&lt;div class=&quot;address&quot; *ngIf=&quot;restaurant.address&quot;&gt;
+  {{restaurant.address.street}}&lt;br /&gt;{{restaurant.address.city}}, {{restaurant.address.state}} {{restaurant.address.zip}}
+&lt;/div&gt;
+
+&lt;div class=&quot;hours-price&quot;&gt;
+  $$$&lt;br /&gt;
+  Hours: M-F 10am-11pm
+  &lt;span class=&quot;open-now&quot;&gt;Open Now&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;a class=&quot;btn&quot; [routerLink]=&quot;['/restaurants', restaurant.slug]&quot;&gt;
+  Details
+&lt;/a&gt;
+&lt;br /&gt;
+</code></pre>
+<p>To solve this problem, use Angular directives to iterate through data and display properties of restaurants.</p>
+<h2>P2: Setup</h2>
+<p>Let's create our restaurant component as well. This will be a component that displays a list of restaurants.</p>
+<p>✏️ Run:</p>
+<pre><code class="language-shell">ng g component restaurant
+</code></pre>
+<p>For now, we'll use fake data for a list of restaurants in the component, and put the data in a setTimeout to simulate an api call.</p>
+<p>✏️ Update <strong>src/app/restaurant/restaurant.component.ts</strong> to be:</p>
+<pre><code class="language-ts">import { Component, OnInit } from '@angular/core';
+
+
+let fakeRestaurants = [
+  {
+    &quot;name&quot;: &quot;Poutine Palace&quot;,
+    &quot;slug&quot;: &quot;poutine-palace&quot;,
+    &quot;images&quot;: {
+      &quot;thumbnail&quot;: &quot;node_modules/place-my-order-assets/images/4-thumbnail.jpg&quot;,
+      &quot;owner&quot;: &quot;node_modules/place-my-order-assets/images/3-owner.jpg&quot;,
+      &quot;banner&quot;: &quot;node_modules/place-my-order-assets/images/2-banner.jpg&quot;
+    },
+    &quot;menu&quot;: {
+      &quot;lunch&quot;: [
+        {
+          &quot;name&quot;: &quot;Crab Pancakes with Sorrel Syrup&quot;,
+          &quot;price&quot;: 35.99
+        },
+        {
+          &quot;name&quot;: &quot;Steamed Mussels&quot;,
+          &quot;price&quot;: 21.99
+        },
+        {
+          &quot;name&quot;: &quot;Spinach Fennel Watercress Ravioli&quot;,
+          &quot;price&quot;: 35.99
+        }
+      ],
+      &quot;dinner&quot;: [
+        {
+          &quot;name&quot;: &quot;Gunthorp Chicken&quot;,
+          &quot;price&quot;: 21.99
+        },
+        {
+          &quot;name&quot;: &quot;Herring in Lavender Dill Reduction&quot;,
+          &quot;price&quot;: 45.99
+        },
+        {
+          &quot;name&quot;: &quot;Chicken with Tomato Carrot Chutney Sauce&quot;,
+          &quot;price&quot;: 45.99
+        }
+      ]
+    },
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;230 W Kinzie Street&quot;,
+      &quot;city&quot;: &quot;Green Bay&quot;,
+      &quot;state&quot;: &quot;WI&quot;,
+      &quot;zip&quot;: &quot;53205&quot;
+    },
+    &quot;_id&quot;: &quot;3ZOZyTY1LH26LnVw&quot;
+  },
+  {
+    &quot;name&quot;: &quot;Cheese Curd City&quot;,
+    &quot;slug&quot;: &quot;cheese-curd-city&quot;,
+    &quot;images&quot;: {
+      &quot;thumbnail&quot;: &quot;node_modules/place-my-order-assets/images/2-thumbnail.jpg&quot;,
+      &quot;owner&quot;: &quot;node_modules/place-my-order-assets/images/3-owner.jpg&quot;,
+      &quot;banner&quot;: &quot;node_modules/place-my-order-assets/images/2-banner.jpg&quot;
+    },
+    &quot;menu&quot;: {
+      &quot;lunch&quot;: [
+        {
+          &quot;name&quot;: &quot;Ricotta Gnocchi&quot;,
+          &quot;price&quot;: 15.99
+        },
+        {
+          &quot;name&quot;: &quot;Gunthorp Chicken&quot;,
+          &quot;price&quot;: 21.99
+        },
+        {
+          &quot;name&quot;: &quot;Garlic Fries&quot;,
+          &quot;price&quot;: 15.99
+        }
+      ],
+      &quot;dinner&quot;: [
+        {
+          &quot;name&quot;: &quot;Herring in Lavender Dill Reduction&quot;,
+          &quot;price&quot;: 45.99
+        },
+        {
+          &quot;name&quot;: &quot;Truffle Noodles&quot;,
+          &quot;price&quot;: 14.99
+        },
+        {
+          &quot;name&quot;: &quot;Charred Octopus&quot;,
+          &quot;price&quot;: 25.99
+        }
+      ]
+    },
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;2451 W Washburne Ave&quot;,
+      &quot;city&quot;: &quot;Green Bay&quot;,
+      &quot;state&quot;: &quot;WI&quot;,
+      &quot;zip&quot;: &quot;53295&quot;
+    },
+    &quot;_id&quot;: &quot;Ar0qBJHxM3ecOhcr&quot;
+  }
+];
+@Component({
+  selector: 'pmo-restaurant',
+  templateUrl: './restaurant.component.html',
+  styleUrls: ['./restaurant.component.less']
+})
+export class RestaurantComponent implements OnInit {
+  public restaurants: any[] = [];
+
+  constructor() { }
+
+  ngOnInit() {
+    setTimeout(() =&gt; {
+      this.restaurants = fakeRestaurants;
+    }, 500)
+  }
+
+}
+
+</code></pre>
+<p>✏️ Update <strong>src/app/restaurant/restaurant.component.html</strong> to be:</p>
+<pre><code class="language-html">&lt;div class=&quot;restaurants&quot;&gt;
+  &lt;h2 class=&quot;page-header&quot;&gt;Restaurants&lt;/h2&gt;
+  &lt;!-- if restaurants has a length show the list --&gt;
+
+    &lt;!-- inside this container, show the following markup for each restaurant --&gt;
+    &lt;div class=&quot;restaurant&quot;&gt;
+
+    &lt;/div&gt;
+    &lt;!-- end of restaurant markup --&gt;
+&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>Reminder: The markup that should be written out for each restaurant can be
+found in the <a href="#exercise-2-write-restaurant-component-markup-that-displays-a-list-of-restaurants">exercise description</a>.</p>
+</blockquote>
+<p>✏️ To see our component working, we can paste it into our <strong>src/app/app.component.html</strong> file just like with the home component:</p>
+<pre><code class="language-html">&lt;h1&gt;Place My Order App: Coming Soon!&lt;/h1&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+
+&lt;pmo-restaurant&gt;&lt;/pmo-restaurant&gt;
+</code></pre>
+<div line-highlight='4'></div>
+<h2>P2: How to Verify Your Solution is Correct</h2>
+<p>✏️ Update the spec file  <strong>src/app/restaurant/restaurant.component.spec.ts</strong> to be:</p>
+<pre><code class="language-ts">import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
+import { RestaurantComponent } from './restaurant.component';
+
+describe('RestaurantComponent', () =&gt; {
+  let component: RestaurantComponent;
+  let fixture: ComponentFixture&lt;RestaurantComponent&gt;;
+
+  beforeEach(async(() =&gt; {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [ RestaurantComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() =&gt; {
+    fixture = TestBed.createComponent(RestaurantComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () =&gt; {
+    expect(component).toBeTruthy();
+  });
+
+  it('should render title in a h2 tag', () =&gt; {
+    const fixture = TestBed.createComponent(RestaurantComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h2').textContent).toContain('Restaurants');
+  });
+
+  it('should not show any restaurants markup if no restaurants', () =&gt; {
+    const fixture = TestBed.createComponent(RestaurantComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.restaurant')).toBe(null);
+  });
+
+  it('should have two .restaurant divs',  &lt;any&gt;fakeAsync((): void =&gt; {
+    const fixture = TestBed.createComponent(RestaurantComponent);
+    fixture.detectChanges();
+    tick(501);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    let restaurantDivs = compiled.getElementsByClassName('restaurant');
+    let hoursDivs = compiled.getElementsByClassName('hours-price');
+    expect(restaurantDivs.length).toEqual(2);
+    expect(hoursDivs.length).toEqual(2);
+  }));
+
+  it('should display restaurant information',  &lt;any&gt;fakeAsync((): void =&gt; {
+    const fixture = TestBed.createComponent(RestaurantComponent);
+    fixture.detectChanges();
+    tick(501);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.restaurant h3').textContent).toContain('Poutine Palace');
+  }));
+
+});
+
+</code></pre>
+<blockquote>
+<p>If you've implemented the solution correctly, when you run <code>npm run test</code> all tests will pass!</p>
+</blockquote>
+<h2>P2: Solution</h2>
+<p>✏️ Update <strong>src/app/restaurant/restaurant.component.html</strong> to the following:</p>
+<pre><code class="language-html">&lt;div class=&quot;restaurants&quot;&gt;
+  &lt;h2 class=&quot;page-header&quot;&gt;Restaurants&lt;/h2&gt;
+  &lt;ng-container *ngIf=&quot;restaurants.length&quot;&gt;
+    &lt;div class=&quot;restaurant&quot; *ngFor=&quot;let restaurant of restaurants&quot;&gt;
+
+      &lt;img src=&quot;{{restaurant.images.thumbnail}}&quot; width=&quot;100&quot; height=&quot;100&quot;&gt;
+      &lt;h3&gt;{{restaurant.name}}&lt;/h3&gt;
+
+      &lt;div class=&quot;address&quot; *ngIf=&quot;restaurant.address&quot;&gt;
+        {{restaurant.address.street}}&lt;br /&gt;{{restaurant.address.city}}, {{restaurant.address.state}} {{restaurant.address.zip}}
+      &lt;/div&gt;
+
+      &lt;div class=&quot;hours-price&quot;&gt;
+        $$$&lt;br /&gt;
+        Hours: M-F 10am-11pm
+        &lt;span class=&quot;open-now&quot;&gt;Open Now&lt;/span&gt;
+      &lt;/div&gt;
+
+      &lt;a class=&quot;btn&quot; [routerLink]=&quot;['/restaurants', restaurant.slug]&quot;&gt;
+        Details
+      &lt;/a&gt;
+      &lt;br /&gt;
+    &lt;/div&gt;
+  &lt;/ng-container&gt;
+&lt;/div&gt;
+</code></pre>
+<div line-highlight='3,4'></div>
+
+</section>
+
+  			
+  		
+    </div>
+
+    
+      <div class="sidebar-right">
+        <div class="content-nav on-this-page-container">
+          <h6>On this page...</h6>
+          <div class="list-items" id="scroll-toc">
+            <bit-toc heading-container-selector="article.main" scroll-selector="#scroll-toc"></bit-toc>
+          </div>
+        </div>
+        <div class="pullout slack">
+          <h6>Get help</h6>
+          <p>If you need <a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y">help</a> with an exercise, please reach out to us on
+             <a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y">Slack</a></p>
+        </div>
+        <div class="pullout bug">
+          <p>If you find a bug, please
+             <a href="https://github.com/bitovi/academy/issues/new">create an issue</a> or email
+             <a href="mailto:contact@bitovi.com?Subject=Training%20Suggestion" target="_blank">contact@bitovi.com<a/></p>
+        </div>
+      </div>
+    
+
+	</article>
+</div>
+
+
+
+  <footer></footer>
+
+  <div id="scripts">
+    <script type="text/javascript">
+      var docObject = {"src":{"path":"src/angular/3-creating-components/creating-components.md"},"description":"Learn how to create basic components in Angular and iterate through data using an Angular for loop. \n","name":"learn-angular/creating-components","title":"Creating Components","type":"page","parent":"learn-angular","order":3,"comment":" ","codepen":[["\"can\"","\"//unpkg.com/can@5/core.mjs\""],["\"can/everything\"","\"//unpkg.com/can@5/everything.mjs\""]],"pathToRoot":"../.."};
+    </script>
+
+    
+      <script>
+        steal = {
+          instantiated: {
+            "bundles/bit-docs-site/static.css!$css" : null
+          }
+        }
+      </script>
+      <script type='text/javascript'
+          data-main="bit-docs-site/static"
+          src="../static/steal.production.js"></script>
+    
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2302003-12"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2302003-12');
+    </script>
+
+  </div>
+</body>
+</html>

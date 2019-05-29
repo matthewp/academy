@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<!--####################################################################
+	THIS IS A GENERATED FILE — ANY CHANGES MADE WILL BE OVERWRITTEN
+
+	INSTEAD CHANGE:
+	source: src/web-components/bus-tracker-component/bus-tracker.md
+	@page learn-web-components/bus-tracker-component
+######################################################################## -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
+  <meta name="description" content="Build a more complex component that combines the usage of &#x60;&lt;template&gt;&#x60; and &#x60;customElements&#x60;, and sets up event listeners. 
+">
+  <title>Bitovi Academy - bus-tracker component</title>
+  
+  <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
+  
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo">
+      <a href="https://www.bitovi.com/">Bitovi</a>
+    </div>
+    <ul>
+      <li><a href="https://www.bitovi.com/services">Services</a></li>
+      <li><a href="https://www.bitovi.com/client-work">Client Work</a></li>
+      <li><a href="https://www.bitovi.com/about">Our Team</a></li>
+      <li><a href="https://www.bitovi.com/open-source">Open Source</a></li>
+      <li><a href="https://www.bitovi.com/blog">Blog</a></li>
+      <li><a href=".." class="active">Academy</a></li>
+     </ul>
+     <a class="contact-popup hs-button brand button-smallest" href="https://www.bitovi.com/contact">Contact Us</a>
+  </div>
+
+  <div class="content">
+	
+		<div class="sidebar-left">
+  
+    
+	<ul>
+		
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-advanced-javascript.html"
+							title="This course covers all the hard but important stuff you should know when learning JavaScript.">
+							Advanced JavaScript
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-dom-jquery.html"
+							title="Learn jQuery and the DOM APIs by building your own version of jQuery and using it to make a basic tabs widget.">
+							DOM and jQuery
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-to-debug-javascript.html"
+							title="This course covers the basics of JavaScript debugging.">
+							Debug JavaScript
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-typescript.html"
+							title="This course covers the basic essentials of TypeScript. At the end, you should be ready to develop projects in TypeScript.">
+							Learn TypeScript
+						</a>
+						
+					</li>
+				
+			
+		
+			
+		
+			
+		
+			
+				
+					<li class="
+           						parent
+           						expanded">
+						<a class="page"
+							href="../learn-web-components.html"
+							title="">
+							Learn Web Components
+						</a>
+						
+							
+	<ul>
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="why-wc.html"
+							title="Learn why web components might be a good choice for building your next widget.">
+							Why Web Components
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="first-component.html"
+							title="Build a &lt;my-greeting&gt; component to learn the APIs. It will be able to display a greeting, and receive a name parameter either from an attribute or a JavaScript property.">
+							Our first component
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="templates.html"
+							title="Learn how &lt;template&gt; can be used to create reusable DOM that can be cloned and used within your components.">
+							Writing a template
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="map-view.html"
+							title="Create a component to hold our Google map view.">
+							Map View
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="current
+           						parent
+           						expanded">
+						<a class="page"
+							href="bus-tracker-component.html"
+							title="Build a more complex component that combines the usage of &lt;template&gt; and customElements, and sets up event listeners.">
+							bus-tracker component
+						</a>
+						
+							
+
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="listing-routes.html"
+							title="Fetch a list of bus routes from the CTA bus tracker API and add them to the .routes-list element.">
+							Listing routes
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="select-a-route.html"
+							title="Learn how to use event listeners with a custom element to handle user interaction and update the DOM.">
+							Selecting a route
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="display-markers.html"
+							title="Learn how to listen to changes in properties on your custom elements and how to properly reflect back the property values to the outside world.">
+							Display markers for vehicles
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="customize-header.html"
+							title="Learn how to use CSS properties to customize the appearance within Shadow DOM.">
+							Customize header styles
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="slotted-content.html"
+							title="Use slot elements to allow more control over non-critical parts of your component.">
+							Slotted content
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="dispatching-events.html"
+							title="Learn how to use custom events to provide information on the state of your component to parent elements.">
+							Dispatching events
+						</a>
+						
+					</li>
+				
+			
+		
+	</ul>
+
+
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-rxjs.html"
+							title="Learn RxJS by creating a validating credit card form.">
+							Learn RxJS
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-canjs.html"
+							title="This tutorial walks through building TodoMVC with StealJS. It includes KeyNote presentations
+covering CanJS core libraries.">
+							Learn CanJS
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../training.html"
+							title="Learn how to prepare and give a training.">
+							Giving a Training
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-angular.html"
+							title="Learn how to build a moderately complex application with Angular.">
+							Learn Angular
+						</a>
+						
+					</li>
+				
+			
+		
+	</ul>
+
+
+  
+  <p class="border">
+      <a href="..#courses">View More Courses</a>
+      <a class='bit-academy-fullscreen' title='fullscreen' href="javascript://">[ ]</a>
+  </p>
+</div>
+
+	
+	<article class="main">
+    <div class="main-content">
+  		
+  			<section class="title">
+	<h1>bus-tracker component <code>page</code></h1>
+</section>
+
+  		
+
+  		
+  			
+  				<section class="description">
+    <p>Build a more complex component that combines the usage of <code>&lt;template&gt;</code> and <code>customElements</code>, and sets up event listeners.</p>
+
+</section>
+
+  			
+  		
+
+  		
+  			
+  				
+  			
+  			
+  				<section class="body">
+    <h2>Overview</h2>
+<p>In this part we will:</p>
+<ul>
+<li>Create another component named <code>bus-tracker</code>.</li>
+<li>Display the <code>google-map-view</code> component within this new component.</li>
+</ul>
+<h2>Problem</h2>
+<p>We want to build a component that displays the CTA bus tracker routes and displays a map. This part builds the <em>shell</em> of the component and includes:</p>
+<ul>
+<li>A header with a title</li>
+<li>A <em>placeholder</em> for where the list of routes will go.</li>
+<li>The <code>google-map-view</code> component we created in the previous section.</li>
+</ul>
+<p><img src="../static/img/web-components/bus-tracker-shell.png"
+style="border: solid 1px black; max-width: 100%;"
+title="The shell of our bus-tracker component showing a header and a Google map"/></p>
+<h2>Technical Requirements</h2>
+<p>The styles for our <code>bus-tracker</code> component should be contained within Shadow DOM. The CSS needed for the rest of the guide is:</p>
+<pre><code class="language-css">:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  height: 250px;
+  position: relative;
+}
+.gmap {
+  width: 100%;
+  height: 250px;
+  background-color: grey;
+}
+
+header {
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  background-color: #313131;
+  color: white;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+#selected-route:not(.route-selected) {
+  display: none;
+}
+.route-selected {
+  line-height: 1;
+  position: absolute;
+  z-index: 1;
+  text-align: right;
+  background: rgba(6, 6, 6, 0.6);
+  top: 10px;
+  right: 10px;
+  padding: 6px 10px;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.route-selected small {
+  display: block;
+  font-size: 14px;
+  color: #ddd;
+}
+.route-selected .error-message {
+  font-size: 14px;
+  background-color: #ff5722;
+  border-radius: 10px;
+  padding: 4px 8px 1px;
+  margin-top: 5px;
+}
+.routes-list {
+  padding: 20px 0;
+  margin: 0;
+  overflow-y: auto;
+}
+.routes-list li {
+  list-style: none;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #dedede;
+  margin: 1% 2%;
+  border-radius: 25px;
+  color: #2196f3;
+  width: 41%;
+  display: inline-flex;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.routes-list li:hover {
+  border-color: transparent;
+  background-color: #008eff;
+  color: white;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+}
+.routes-list li .check {
+  display: none;
+}
+.routes-list li.active {
+  color: #666;
+  background-color: #e8e8e8;
+}
+.routes-list li.active .check {
+  display: inline-block;
+  margin-left: 5px;
+  color: #2cc532;
+}
+.routes-list li.active:hover {
+  border-color: #dedede;
+  box-shadow: none;
+}
+.routes-list button {
+  width: 100%;
+  padding: 8px 8px 6px;
+  border: none;
+  border-radius: 25px;
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+.route-number {
+  display: inline-block;
+  border-right: 1px solid #dedede;
+  padding-right: 5px;
+  margin-right: 5px;
+  min-width: 18px;
+  text-align: right;
+}
+p {
+  text-align: center;
+  margin: 0;
+  color: #ccc;
+  font-size: 14px;
+}
+</code></pre>
+<p>The minimal markup needed for this component is:</p>
+<pre><code class="language-html">&lt;div class=&quot;top&quot;&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Chicago CTA Bus Tracker&lt;/h1&gt;
+    &lt;p id=&quot;loading-routes&quot;&gt;Loading routes…&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;ul class=&quot;routes-list&quot;&gt;&lt;/ul&gt;
+&lt;/div&gt;
+&lt;footer&gt;
+  &lt;button id=&quot;selected-route&quot; type=&quot;button&quot;&gt;&lt;/button&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>The <code>google-map-view</code> component should be displayed in the <code>&lt;footer&gt;</code> section of the component.</p>
+<h2>What You Need to Know</h2>
+<p>To solve this problem you'll need to:</p>
+<ul>
+<li>Know how to use CSS in a component that uses Shadow DOM.</li>
+<li>Use a component within another component.</li>
+</ul>
+<h3>Using styles within a component</h3>
+<p>Styles added to a page via <code>&lt;link rel=stylesheet&gt;</code> cannot be used within a shadowRoot. Services like <a href="https://codepen.io/">CodePen</a> that allow you to add CSS will add them this way. Instead place your styles within a <code>&lt;style&gt;</code> tag inside of the shadowRoot.</p>
+<pre><code class="language-html">&lt;style&gt;
+  .foo { display: block; }
+&lt;/style&gt;
+</code></pre>
+<p>The <code>:host</code> selector is a way to style the host of a <code>shadowRoot</code>. A common use-case is to change the display. By default custom elements have a display of <code>inline</code> which is like a <code>&lt;span&gt;</code>. Often authors prefer to have a <code>block</code> display, they can change this in their shadowRoot with this CSS:</p>
+<pre><code class="language-html">&lt;style&gt;
+  :host {
+    display: block;
+  }
+&lt;/style&gt;
+</code></pre>
+<p>In our component we are using <code>display: flex</code> to give space to the header, route list, and Google map.</p>
+<h3>Nesting components</h3>
+<p>Any component defined using <code>customElements.define()</code> can be used within another element's <code>shadowRoot</code> just as they can inside of the page's HTML. To add the <code>google-map-view</code> to this new component, place the tag within the footer.</p>
+<h2>Solution</h2>
+<p>✏️ Create a new component called <code>bus-tracker</code>. Use the CSS and markup provided and place them in a <code>&lt;template&gt;</code> with the id of <code>#bt-template</code>. Create a shadowRoot for this element and append a clone of the template.</p>
+<pre><code class="language-html">&lt;style&gt;
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    font-family: &quot;Catamaran&quot;, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+&lt;/style&gt;
+&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=AIzaSyD7POAQA-i16Vws48h4yRFVGBZzIExOAJI&quot;&gt;&lt;/script&gt;
+
+&lt;bus-tracker&gt;&lt;/bus-tracker&gt;
+
+&lt;template id=&quot;bt-template&quot;&gt;
+  &lt;style&gt;
+    :host {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .top {
+      flex-grow: 1;
+      overflow-y: auto;
+      height: 10%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    footer {
+      height: 250px;
+      position: relative;
+    }
+    .gmap {
+      width: 100%;
+      height: 250px;
+      background-color: grey;
+    }
+
+    header {
+      box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+      background-color: #313131;
+      color: white;
+      min-height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.2;
+    }
+
+    header h1 {
+      text-align: center;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+    #selected-route:not(.route-selected) {
+      display: none;
+    }
+    .route-selected {
+      line-height: 1;
+      position: absolute;
+      z-index: 1;
+      text-align: right;
+      background: rgba(6, 6, 6, 0.6);
+      top: 10px;
+      right: 10px;
+      padding: 6px 10px;
+      color: white;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .route-selected small {
+      display: block;
+      font-size: 14px;
+      color: #ddd;
+    }
+    .route-selected .error-message {
+      font-size: 14px;
+      background-color: #ff5722;
+      border-radius: 10px;
+      padding: 4px 8px 1px;
+      margin-top: 5px;
+    }
+    .routes-list {
+      padding: 20px 0;
+      margin: 0;
+      overflow-y: auto;
+    }
+    .routes-list li {
+      list-style: none;
+      cursor: pointer;
+      background: white;
+      border: 1px solid #dedede;
+      margin: 1% 2%;
+      border-radius: 25px;
+      color: #2196f3;
+      width: 41%;
+      display: inline-flex;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+    .routes-list li:hover {
+      border-color: transparent;
+      background-color: #008eff;
+      color: white;
+      box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+    }
+    .routes-list li .check {
+      display: none;
+    }
+    .routes-list li.active {
+      color: #666;
+      background-color: #e8e8e8;
+    }
+    .routes-list li.active .check {
+      display: inline-block;
+      margin-left: 5px;
+      color: #2cc532;
+    }
+    .routes-list li.active:hover {
+      border-color: #dedede;
+      box-shadow: none;
+    }
+    .routes-list button {
+      width: 100%;
+      padding: 8px 8px 6px;
+      border: none;
+      border-radius: 25px;
+      background: transparent;
+      text-align: left;
+      font: inherit;
+      color: inherit;
+    }
+    .route-number {
+      display: inline-block;
+      border-right: 1px solid #dedede;
+      padding-right: 5px;
+      margin-right: 5px;
+      min-width: 18px;
+      text-align: right;
+    }
+    p {
+      text-align: center;
+      margin: 0;
+      color: #ccc;
+      font-size: 14px;
+    }
+  &lt;/style&gt;
+  &lt;div class=&quot;top&quot;&gt;
+    &lt;header&gt;
+      &lt;h1&gt;Chicago CTA Bus Tracker&lt;/h1&gt;
+      &lt;p id=&quot;loading-routes&quot;&gt;Loading routes…&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;ul class=&quot;routes-list&quot;&gt;&lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;footer&gt;
+    &lt;button id=&quot;selected-route&quot; type=&quot;button&quot;&gt;
+    &lt;/button&gt;
+
+    &lt;google-map-view&gt;&lt;/google-map-view&gt;
+  &lt;/footer&gt;
+&lt;/template&gt;
+&lt;template id=&quot;gmap-template&quot;&gt;
+  &lt;style&gt;
+    .gmap {
+      width: 100%;
+      height: 250px;
+      background-color: grey;
+    }
+  &lt;/style&gt;
+  &lt;div class=&quot;gmap&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;script type=&quot;module&quot;&gt;
+const template = document.querySelector('#gmap-template');
+
+class GoogleMapView extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+
+    let nodes = document.importNode(template.content, true);
+    this.shadowRoot.append(nodes);
+  }
+
+  connectedCallback() {
+    let gmap = this.shadowRoot.querySelector('.gmap');
+    this.map = new google.maps.Map(gmap, {
+      zoom: 10,
+      center: {
+        lat: 41.881,
+        lng: -87.623
+      }
+    });
+  }
+}
+
+customElements.define('google-map-view', GoogleMapView);
+
+const btTemplate = document.querySelector('#bt-template');
+
+class BusTracker extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: &quot;open&quot; });
+
+    let frag = document.importNode(btTemplate.content, true);
+    this.shadowRoot.append(frag);
+  }
+}
+
+customElements.define(&quot;bus-tracker&quot;, BusTracker);
+&lt;/script&gt;
+
+</code></pre>
+<div line-highlight='16,18-168,205-217,only'></div>
+<div class='codepen'></div>
+
+</section>
+
+  			
+  		
+    </div>
+
+    
+      <div class="sidebar-right">
+        <div class="content-nav on-this-page-container">
+          <h6>On this page...</h6>
+          <div class="list-items" id="scroll-toc">
+            <bit-toc heading-container-selector="article.main" scroll-selector="#scroll-toc"></bit-toc>
+          </div>
+        </div>
+        <div class="pullout slack">
+          <h6>Get help</h6>
+          <p>If you need <a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y">help</a> with an exercise, please reach out to us on
+             <a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y">Slack</a></p>
+        </div>
+        <div class="pullout bug">
+          <p>If you find a bug, please
+             <a href="https://github.com/bitovi/academy/issues/new">create an issue</a> or email
+             <a href="mailto:contact@bitovi.com?Subject=Training%20Suggestion" target="_blank">contact@bitovi.com<a/></p>
+        </div>
+      </div>
+    
+
+	</article>
+</div>
+
+
+
+  <footer></footer>
+
+  <div id="scripts">
+    <script type="text/javascript">
+      var docObject = {"src":{"path":"src/web-components/bus-tracker-component/bus-tracker.md"},"description":"Build a more complex component that combines the usage of `<template>` and `customElements`, and sets up event listeners. \n","name":"learn-web-components/bus-tracker-component","title":"bus-tracker component","type":"page","parent":"learn-web-components","order":5,"comment":" ","codepen":[["\"can\"","\"//unpkg.com/can@5/core.mjs\""],["\"can/everything\"","\"//unpkg.com/can@5/everything.mjs\""]],"pathToRoot":"../.."};
+    </script>
+
+    
+      <script>
+        steal = {
+          instantiated: {
+            "bundles/bit-docs-site/static.css!$css" : null
+          }
+        }
+      </script>
+      <script type='text/javascript'
+          data-main="bit-docs-site/static"
+          src="../static/steal.production.js"></script>
+    
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2302003-12"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2302003-12');
+    </script>
+
+  </div>
+</body>
+</html>

@@ -11,6 +11,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
+  <meta name="description" content="Build a &#x60;&lt;my-greeting&gt;&#x60; component to learn the APIs. It will be able to display a greeting, and receive a &#x60;name&#x60; parameter either from an attribute or a JavaScript property. 
+">
   <title>Bitovi Academy - Our first component</title>
   
   <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
@@ -48,7 +50,7 @@
            						
            						">
 						<a class="page"
-							href="../advanced-javascript-training.html"
+							href="../learn-advanced-javascript.html"
 							title="This course covers all the hard but important stuff you should know when learning JavaScript.">
 							Advanced JavaScript
 						</a>
@@ -63,7 +65,7 @@
            						
            						">
 						<a class="page"
-							href="../dom-jquery-training.html"
+							href="../learn-dom-jquery.html"
 							title="Learn jQuery and the DOM APIs by building your own version of jQuery and using it to make a basic tabs widget.">
 							DOM and jQuery
 						</a>
@@ -78,7 +80,7 @@
            						
            						">
 						<a class="page"
-							href="../debugging-javascript-training.html"
+							href="../learn-to-debug-javascript.html"
 							title="This course covers the basics of JavaScript debugging.">
 							Debug JavaScript
 						</a>
@@ -93,9 +95,9 @@
            						
            						">
 						<a class="page"
-							href="../typescript.html"
+							href="../learn-typescript.html"
 							title="This course covers the basic essentials of TypeScript. At the end, you should be ready to develop projects in TypeScript.">
-							TypeScript
+							Learn TypeScript
 						</a>
 						
 					</li>
@@ -189,8 +191,23 @@
            						
            						">
 						<a class="page"
+							href="bus-tracker-component.html"
+							title="Build a more complex component that combines the usage of &lt;template&gt; and customElements, and sets up event listeners.">
+							bus-tracker component
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
 							href="listing-routes.html"
-							title="Learn lit-html by creating a component that lists bus routes from the CTA bus tracker API.">
+							title="Fetch a list of bus routes from the CTA bus tracker API and add them to the .routes-list element.">
 							Listing routes
 						</a>
 						
@@ -205,7 +222,7 @@
            						">
 						<a class="page"
 							href="select-a-route.html"
-							title="Learn more about lit-html, with its special syntax for setting up event listeners and for passing properties to child components.">
+							title="Learn how to use event listeners with a custom element to handle user interaction and update the DOM.">
 							Selecting a route
 						</a>
 						
@@ -287,9 +304,9 @@
            						
            						">
 						<a class="page"
-							href="../RxJS.html"
+							href="../learn-rxjs.html"
 							title="Learn RxJS by creating a validating credit card form.">
-							RxJS
+							Learn RxJS
 						</a>
 						
 					</li>
@@ -302,9 +319,10 @@
            						
            						">
 						<a class="page"
-							href="../angular.html"
-							title="Learn the basics of Angular.">
-							Angular
+							href="../learn-canjs.html"
+							title="This tutorial walks through building TodoMVC with StealJS. It includes KeyNote presentations
+covering CanJS core libraries.">
+							Learn CanJS
 						</a>
 						
 					</li>
@@ -326,11 +344,29 @@
 				
 			
 		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-angular.html"
+							title="Learn how to build a moderately complex application with Angular.">
+							Learn Angular
+						</a>
+						
+					</li>
+				
+			
+		
 	</ul>
 
 
   
-  <p class="border"><a href="..#courses">View More Courses</a></p>
+  <p class="border">
+      <a href="..#courses">View More Courses</a>
+      <a class='bit-academy-fullscreen' title='fullscreen' href="javascript://">[ ]</a>
+  </p>
 </div>
 
 	
@@ -429,7 +465,7 @@ customElements.define('my-greeting', MyGreeting);
 </code></pre>
 <p><em>However</em>, in order to get attribute change notification you <strong>must</strong> define which attributes should be observed. This means that you aren't notified when any arbitrary attribute is added; only those you predefine. This is a performance optimization tradeoff that was made when designing the API.</p>
 <p>To define which attributes should be added you add a static getter <code>observedAttributes</code> on the class.</p>
-<p>The following will observe changes the <code>name</code> attribute and update the innerHTML when it changes.</p>
+<p>The following will observe changes to the <code>name</code> attribute and update the innerHTML when it changes.</p>
 <pre><code class="language-html">&lt;my-greeting name=&quot;world&quot;&gt;&lt;/my-greeting&gt;
 &lt;script type=&quot;module&quot;&gt;
 class MyGreeting extends HTMLElement {
@@ -544,13 +580,12 @@ setTimeout(() =&gt; {
         </div>
         <div class="pullout slack">
           <h6>Get help</h6>
-          <p>If you need help with an exercise, please reach out to us on
+          <p>If you need <a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y">help</a> with an exercise, please reach out to us on
              <a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y">Slack</a></p>
-             <!--<a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y"><img src="https://i.ibb.co/XS6n24B/slack.png"/></a>-->
         </div>
         <div class="pullout bug">
           <p>If you find a bug, please
-             <a href="https://github.com/bitovi/university/issues/new">create an issue</a> or email
+             <a href="https://github.com/bitovi/academy/issues/new">create an issue</a> or email
              <a href="mailto:contact@bitovi.com?Subject=Training%20Suggestion" target="_blank">contact@bitovi.com<a/></p>
         </div>
       </div>
@@ -565,7 +600,7 @@ setTimeout(() =&gt; {
 
   <div id="scripts">
     <script type="text/javascript">
-      var docObject = {"src":{"path":"src/web-components/our-first-component.md"},"description":"Build a `<my-greeting>` component to learn the APIs. It will be able to display a greeting, and receive a `name` parameter either from an attribute or a JavaScript property. \n","name":"learn-web-components/first-component","title":"Our first component","type":"page","parent":"learn-web-components","order":2,"comment":" ","pathToRoot":"../.."};
+      var docObject = {"src":{"path":"src/web-components/our-first-component.md"},"description":"Build a `<my-greeting>` component to learn the APIs. It will be able to display a greeting, and receive a `name` parameter either from an attribute or a JavaScript property. \n","name":"learn-web-components/first-component","title":"Our first component","type":"page","parent":"learn-web-components","order":2,"comment":" ","codepen":[["\"can\"","\"//unpkg.com/can@5/core.mjs\""],["\"can/everything\"","\"//unpkg.com/can@5/everything.mjs\""]],"pathToRoot":"../.."};
     </script>
 
     
@@ -582,13 +617,15 @@ setTimeout(() =&gt; {
     
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2302003-29"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2302003-12"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-2302003-29');
+
+      gtag('config', 'UA-2302003-12');
     </script>
+
   </div>
 </body>
 </html>

@@ -11,6 +11,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="UMCgjrWAjJW_tHmYo6AerdZvVdmh8QHdY9Ywb59tpHw" />
+  <meta name="description" content="Learn how to use custom events to provide information on the *state* of your component to parent elements. 
+">
   <title>Bitovi Academy - Dispatching events</title>
   
   <link rel="stylesheet" type="text/css" href="../static/bundles/bit-docs-site/static.css">
@@ -48,7 +50,7 @@
            						
            						">
 						<a class="page"
-							href="../advanced-javascript-training.html"
+							href="../learn-advanced-javascript.html"
 							title="This course covers all the hard but important stuff you should know when learning JavaScript.">
 							Advanced JavaScript
 						</a>
@@ -63,7 +65,7 @@
            						
            						">
 						<a class="page"
-							href="../dom-jquery-training.html"
+							href="../learn-dom-jquery.html"
 							title="Learn jQuery and the DOM APIs by building your own version of jQuery and using it to make a basic tabs widget.">
 							DOM and jQuery
 						</a>
@@ -78,7 +80,7 @@
            						
            						">
 						<a class="page"
-							href="../debugging-javascript-training.html"
+							href="../learn-to-debug-javascript.html"
 							title="This course covers the basics of JavaScript debugging.">
 							Debug JavaScript
 						</a>
@@ -93,9 +95,9 @@
            						
            						">
 						<a class="page"
-							href="../typescript.html"
+							href="../learn-typescript.html"
 							title="This course covers the basic essentials of TypeScript. At the end, you should be ready to develop projects in TypeScript.">
-							TypeScript
+							Learn TypeScript
 						</a>
 						
 					</li>
@@ -186,8 +188,23 @@
            						
            						">
 						<a class="page"
+							href="bus-tracker-component.html"
+							title="Build a more complex component that combines the usage of &lt;template&gt; and customElements, and sets up event listeners.">
+							bus-tracker component
+						</a>
+						
+					</li>
+				
+			
+		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
 							href="listing-routes.html"
-							title="Learn lit-html by creating a component that lists bus routes from the CTA bus tracker API.">
+							title="Fetch a list of bus routes from the CTA bus tracker API and add them to the .routes-list element.">
 							Listing routes
 						</a>
 						
@@ -202,7 +219,7 @@
            						">
 						<a class="page"
 							href="select-a-route.html"
-							title="Learn more about lit-html, with its special syntax for setting up event listeners and for passing properties to child components.">
+							title="Learn how to use event listeners with a custom element to handle user interaction and update the DOM.">
 							Selecting a route
 						</a>
 						
@@ -287,9 +304,9 @@
            						
            						">
 						<a class="page"
-							href="../RxJS.html"
+							href="../learn-rxjs.html"
 							title="Learn RxJS by creating a validating credit card form.">
-							RxJS
+							Learn RxJS
 						</a>
 						
 					</li>
@@ -302,9 +319,10 @@
            						
            						">
 						<a class="page"
-							href="../angular.html"
-							title="Learn the basics of Angular.">
-							Angular
+							href="../learn-canjs.html"
+							title="This tutorial walks through building TodoMVC with StealJS. It includes KeyNote presentations
+covering CanJS core libraries.">
+							Learn CanJS
 						</a>
 						
 					</li>
@@ -326,11 +344,29 @@
 				
 			
 		
+			
+				
+					<li class="
+           						
+           						">
+						<a class="page"
+							href="../learn-angular.html"
+							title="Learn how to build a moderately complex application with Angular.">
+							Learn Angular
+						</a>
+						
+					</li>
+				
+			
+		
 	</ul>
 
 
   
-  <p class="border"><a href="..#courses">View More Courses</a></p>
+  <p class="border">
+      <a href="..#courses">View More Courses</a>
+      <a class='bit-academy-fullscreen' title='fullscreen' href="javascript://">[ ]</a>
+  </p>
 </div>
 
 	
@@ -371,9 +407,30 @@
 </ul>
 <h2>What you need to know</h2>
 <ul>
-<li>Custom elements can have events just like any other element. You can listen to events the same way as well; in our case we'll use <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">addEventListener</a>.</li>
+<li>Custom elements can have events just like any other element. You can listen to events the same way as well; in our case we'll use <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">addEventListener</a>.
+<pre><code class="language-js">el.addEventListener('any-event', () =&gt; {
+  // Handle this event just like you would any built-in.
+});
+</code></pre></li>
 <li>To dispatch a custom event that contains data pertaining to the event, use <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent">CustomEvent</a>. With CustomEvent you can include a <code>detail</code> property. This can contain any sort of data about the event you want to provide. In our case we'll use the <strong>route</strong> object as the detail property.</li>
-<li>Create an event using <code>let ev = new CustomEvent({ detail: {...} })</code>. This create an event object. To dispatch it, the element (in our case a custom element) has a <code>dispatchEvent(ev)</code> function that takes the new event.</li>
+<li>Events are created using <code>let ev = new CustomEvent({ detail: {...} })</code>. This create an event object. To dispatch it, the element (in our case a custom element) has a <code>dispatchEvent(ev)</code> function that takes the new event.
+<pre><code class="language-js">let el = document.createElement('div');
+
+el.addEventListener('favorite-food', ev =&gt; {
+  console.log(ev.detail); // -&gt; &quot;pizza&quot;
+});
+
+let ev = new CustomEvent('favorite-food', {
+  detail: 'pizza'
+});
+el.dispatchEvent(ev);
+</code></pre>
+  <div class='codepen'></div></li>
+<li>Events created this way do not <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/bubbles">bubble</a> by default. This means that if you want to listen to events you must place the listener directly on the element from which the event is dispatched. You can enable bubbling by providing <code>{ bubbles: true }</code> when creating the event.
+<pre><code class="language-js">let ev = new CustomEvent('my-event', {
+  bubbles: true
+});
+</code></pre></li>
 </ul>
 <h2>The solution</h2>
 <p>Create an element that displays the current route. Using <code>addEventListener</code>, listen for the <code>route</code> event and set this element's text to be the <code>.rtnm</code> property from the event's detail.</p>
@@ -828,13 +885,12 @@ document.querySelector('bus-tracker').addEventListener('route', ev =&gt; {
         </div>
         <div class="pullout slack">
           <h6>Get help</h6>
-          <p>If you need help with an exercise, please reach out to us on
+          <p>If you need <a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y">help</a> with an exercise, please reach out to us on
              <a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y">Slack</a></p>
-             <!--<a href="https://join.slack.com/t/bitovi-community/shared_invite/enQtNTIzMTE5NzYxMjA3LWMwMzE4MjFkMTI5ZmZjNzllYjc2MzcxOWNmOTg3YjI4NjE0MGFkZGNkOTNlZjlkNDBhNTlmYTcwMzJlZDZjY2Y"><img src="https://i.ibb.co/XS6n24B/slack.png"/></a>-->
         </div>
         <div class="pullout bug">
           <p>If you find a bug, please
-             <a href="https://github.com/bitovi/university/issues/new">create an issue</a> or email
+             <a href="https://github.com/bitovi/academy/issues/new">create an issue</a> or email
              <a href="mailto:contact@bitovi.com?Subject=Training%20Suggestion" target="_blank">contact@bitovi.com<a/></p>
         </div>
       </div>
@@ -849,7 +905,7 @@ document.querySelector('bus-tracker').addEventListener('route', ev =&gt; {
 
   <div id="scripts">
     <script type="text/javascript">
-      var docObject = {"src":{"path":"src/web-components/custom-events.md"},"description":"Learn how to use custom events to provide information on the *state* of your component to parent elements. \n","name":"learn-web-components/dispatching-events","title":"Dispatching events","type":"page","parent":"learn-web-components","order":10,"comment":" ","pathToRoot":"../.."};
+      var docObject = {"src":{"path":"src/web-components/custom-events.md"},"description":"Learn how to use custom events to provide information on the *state* of your component to parent elements. \n","name":"learn-web-components/dispatching-events","title":"Dispatching events","type":"page","parent":"learn-web-components","order":10,"comment":" ","codepen":[["\"can\"","\"//unpkg.com/can@5/core.mjs\""],["\"can/everything\"","\"//unpkg.com/can@5/everything.mjs\""]],"pathToRoot":"../.."};
     </script>
 
     
@@ -866,13 +922,15 @@ document.querySelector('bus-tracker').addEventListener('route', ev =&gt; {
     
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2302003-29"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2302003-12"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-2302003-29');
+
+      gtag('config', 'UA-2302003-12');
     </script>
+
   </div>
 </body>
 </html>
